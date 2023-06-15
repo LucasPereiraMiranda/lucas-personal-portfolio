@@ -1,9 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { Box, Button, Flex, Heading, useColorMode } from '@chakra-ui/react'
 
 export default function Home() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
-    <h1>Lucas Pereira Miranda Resume</h1>
+    <>
+      <Flex justifyContent='space-around' alignItems='center'>
+        <Box p={4}>
+          <Heading size="xl">Lucas Pereira Miranda Portfolio</Heading>
+        </Box>
+        <Box>
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? "Dark Theme" : "Light Theme"}
+          </Button>
+        </Box>
+      </Flex>
+    </>
   )
 }
