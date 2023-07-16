@@ -22,11 +22,8 @@ export function SocialButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={arialLabel}
-      colorScheme="gray"
       icon={<Icon />}
       size="lg"
-      mr="2"
-      transition="background-color 0.8s ease"
       _hover={{ color: hoverColor }}
       variant="with-shadow"
     />
