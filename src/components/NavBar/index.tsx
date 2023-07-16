@@ -14,8 +14,8 @@ export function Navbar({ isSidebar }: NavbarProps) {
       wrap={isSidebar ? "wrap" : "nowrap"}
     >
       <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
       <Link href="/tech-stack">Tech Stack</Link>
+      <Link href="/about">About</Link>
       <Link href="/projects">Projects</Link>
       <Link href="/contact">Contact</Link>
     </Flex>
