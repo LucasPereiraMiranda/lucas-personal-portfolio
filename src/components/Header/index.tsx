@@ -8,8 +8,10 @@ import {
   Flex,
   IconButton,
   useDisclosure,
+  Text,
+  Link,
 } from "@chakra-ui/react";
-import { FaBars, FaDev } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { Navbar } from "../NavBar";
 import { ThemeSwitcher } from "../ThemeSwitcher";
@@ -29,13 +31,24 @@ export function Header() {
       padding={8}
     >
       <Box display="flex" alignItems="center">
-        <IconButton
-          aria-label="Dev Icon"
-          icon={<FaDev size={50} />}
-          variant="ghost"
-          marginRight={4}
+        <Link
+          href="#"
+          display="block"
+          borderRadius="md"
           onClick={() => handleHomeClick}
-        />
+        >
+          <Flex alignItems="center">
+            <Text
+              ml={2}
+              fontWeight="bold"
+              fontSize={"x-large"}
+              textStyle={"bordedGradientText"}
+            >
+              {`<> Lucas </>`}
+            </Text>
+          </Flex>
+        </Link>
+
         <Box display={{ base: "none", md: "flex" }} alignItems="center">
           <Navbar />
         </Box>
