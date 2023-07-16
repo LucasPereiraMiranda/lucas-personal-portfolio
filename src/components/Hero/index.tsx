@@ -1,19 +1,33 @@
-import { Flex, Image, Text, Stack } from "@chakra-ui/react";
+import { Flex, Image, Stack, Text } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { SocialButton } from "../SocialButton";
+
+const MotionStack = motion(Stack);
+const MotionImage = motion(Image);
+const MotionFlex = motion(Flex);
 
 export function Hero() {
   return (
     <Flex align="center" justify="center" flexDirection="column">
-      <Stack
+      <MotionStack
         direction={{ base: "column", md: "row" }}
         textAlign="center"
         spacing={{ base: 8, md: 16 }}
         marginTop={{ base: "0rem", md: "8rem" }}
         gap={{ base: "5rem", md: "10rem" }}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <Flex alignItems="center" justifyContent="center">
-          <Image
+        <MotionFlex
+          alignItems="center"
+          justifyContent="center"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <MotionImage
             src="https://github.com/LucasPereiraMiranda.png"
             alt="Lucas' profile picture"
             boxSize="250px"
@@ -21,24 +35,32 @@ export function Hero() {
             mr="4"
             boxShadow="0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.5)"
           />
-        </Flex>
-        <Flex direction="column">
+        </MotionFlex>
+        <MotionFlex
+          direction="column"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
           <Text fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold" mb="2">
-            Hi 👋,
+            Hi there! 👋
           </Text>
           <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" mb="2">
-            My name is Lucas
+            I'm{" "}
+            <Text as="span" textStyle={"bordedGradientText"}>
+              Lucas
+            </Text>
           </Text>
           <Text fontSize={{ base: "xl", md: "xl" }} fontWeight="medium" mb="4">
-            I build things for the web
+            Creating software experiences with passion
           </Text>
 
-          <Flex justifyContent="center" alignItems="center">
+          <MotionFlex justifyContent="center" alignItems="center">
             <SocialButton
               link="https://github.com/LucasPereiraMiranda"
               arialLabel="Github"
               Icon={FaGithub}
-              hoverColor="#AAAAAA"
+              hoverColor="#999"
             />
             <SocialButton
               link="https://www.instagram.com/_lucaspmiranda_/"
@@ -52,9 +74,9 @@ export function Hero() {
               Icon={FaLinkedin}
               hoverColor="#0077B5"
             />
-          </Flex>
-        </Flex>
-      </Stack>
+          </MotionFlex>
+        </MotionFlex>
+      </MotionStack>
     </Flex>
   );
 }
