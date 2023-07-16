@@ -25,8 +25,7 @@ const components = {
 };
 
 const fonts = {
-  heading: "Georgia, serif",
-  body: "Nunito, sans-serif",
+  body: "var(--font-nunito), sans-serif",
 };
 
 const config = {
