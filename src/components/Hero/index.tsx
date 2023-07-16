@@ -46,13 +46,13 @@ export function Hero() {
             Hi there! 👋
           </Text>
           <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" mb="2">
-            I'm{" "}
+            I&apos;m{" "}
             <Text as="span" textStyle={"bordedGradientText"}>
               Lucas
             </Text>
           </Text>
           <Text fontSize={{ base: "xl", md: "xl" }} fontWeight="medium" mb="4">
-            Creating software experiences with passion
+            A Software Developer Creating Experiences with Passion
           </Text>
 
           <MotionFlex justifyContent="center" alignItems="center">
