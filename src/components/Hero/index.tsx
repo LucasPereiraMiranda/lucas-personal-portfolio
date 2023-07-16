@@ -60,7 +60,7 @@ export function Hero() {
               link="https://github.com/LucasPereiraMiranda"
               arialLabel="Github"
               Icon={FaGithub}
-              hoverColor="#999"
+              hoverColor="#718096"
             />
             <SocialButton
               link="https://www.instagram.com/_lucaspmiranda_/"
