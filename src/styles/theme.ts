@@ -9,21 +9,6 @@ const styles = {
   }),
 };
 
-const components = {
-  Link: {
-    baseStyle: (props: StyleFunctionProps | Record<string, any>) => ({
-      color: mode("gray.800", "gray.100")(props),
-      textDecoration: "none",
-
-      transition: "color 0.1s ease-in-out",
-      _hover: {
-        color: mode("cyan.800", "cyan.300")(props),
-        textDecoration: "none",
-      },
-    }),
-  },
-};
-
 const fonts = {
   body: "var(--font-nunito), sans-serif",
 };
@@ -51,7 +36,6 @@ const textStyles = {
 export const theme = extendTheme({
   config,
   styles,
-  components,
   textStyles,
   fonts,
   colors,
