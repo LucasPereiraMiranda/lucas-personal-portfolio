@@ -9,13 +9,17 @@ const MotionFlex = motion(Flex);
 
 export function Hero() {
   return (
-    <Flex align="center" justify="center" flexDirection="column">
+    <Flex
+      align="center"
+      justify={{ base: "center", md: "flex-start" }}
+      flexDirection="column"
+      style={{ height: "100vh" }}
+    >
       <MotionStack
-        direction={{ base: "column", md: "row" }}
+        direction="column"
         textAlign="center"
-        spacing={{ base: 8, md: 16 }}
-        marginTop={{ base: "0rem", md: "8rem" }}
-        gap={{ base: "5rem", md: "10rem" }}
+        marginTop={{ base: "5rem", md: "1rem" }}
+        gap={{ base: "5rem", md: "6rem" }}
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
@@ -30,7 +34,7 @@ export function Hero() {
           <MotionImage
             src="https://github.com/LucasPereiraMiranda.png"
             alt="Lucas' profile picture"
-            boxSize="250px"
+            boxSize="16rem"
             borderRadius="full"
             mr="4"
             boxShadow="0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.5)"
@@ -51,8 +55,8 @@ export function Hero() {
               Lucas
             </Text>
           </Text>
-          <Text fontSize={{ base: "xl", md: "xl" }} fontWeight="medium" mb="4">
-            A Software Developer Creating Experiences with Passion
+          <Text fontSize={{ base: "xl", md: "2xl" }} fontWeight="medium" mb="4">
+            Crafting Digital Experiences: Transforming Ideas into Reality.
           </Text>
 
           <MotionFlex justifyContent="center" alignItems="center">
