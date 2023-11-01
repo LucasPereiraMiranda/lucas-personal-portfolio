@@ -45,13 +45,12 @@ import {
 
 import { Element } from "react-scroll";
 
-const MotionFlex = motion(Flex);
-
 export function TechStack() {
   const baseIconColor = useColorModeValue("gray.900", "gray.100");
   return (
     <Element name="tech-stack">
       <Flex
+        minHeight={"100vh"}
         alignItems="center"
         justifyContent="flex-start"
         flexDirection="column"
