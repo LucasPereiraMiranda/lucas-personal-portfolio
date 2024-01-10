@@ -1,6 +1,6 @@
-import React from 'react';
-import { Flex, Text, Heading, Divider } from '@chakra-ui/react';
-import { Element } from 'react-scroll';
+import React from "react";
+import { Flex, Text, Divider } from "@chakra-ui/react";
+import { Element } from "react-scroll";
 
 export function ExperienceSection() {
   return (
@@ -50,8 +50,18 @@ export function ExperienceSection() {
             flexDirection="column"
             px={{ base: "4", md: "0" }}
           >
-            <Text textAlign="center" fontSize="xl" fontWeight="bold" lineHeight="taller" marginLeft={{base:"0",md:"10rem"}}>
-              I'm a software developer specializing in building data analysis pipelines and web systems. I possess expertise in a diverse range of programming languages, database modeling, and IT infrastructure. I thrive on tackling challenges and am committed to crafting effective, scalable solutions.
+            <Text
+              textAlign="center"
+              fontSize="xl"
+              fontWeight="bold"
+              lineHeight="taller"
+              marginLeft={{ base: "0", md: "10rem" }}
+            >
+              I'm a software developer specializing in building data analysis
+              pipelines and web systems. I possess expertise in a diverse range
+              of programming languages, database modeling, and IT
+              infrastructure. I thrive on tackling challenges and am committed
+              to crafting effective, scalable solutions.
             </Text>
           </Flex>
 
@@ -74,39 +84,37 @@ export function ExperienceSection() {
                 <Text fontSize="lg" fontWeight="bold">
                   Backend Mid Software Developer
                 </Text>
-                <Text fontSize="lg">
-                  ClubPetro Tecnologia de Dados, Brasil
-                </Text>
+                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brasil</Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">
-                  Full Time 
-                </Text>
-                <Text fontSize="lg">
-                  Jan 2022 - atual
-                </Text>
+                <Text fontSize="lg">Full Time</Text>
+                <Text fontSize="lg">Jan 2022 - atual</Text>
               </Flex>
 
-              <Divider orientation="horizontal" borderColor="gray.500" my={4} w="100%" />
+              <Divider
+                orientation="horizontal"
+                borderColor="gray.500"
+                my={4}
+                w="100%"
+              />
 
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg" fontWeight="bold">
                   Intern Backend Developer
                 </Text>
-                <Text fontSize="lg">
-                  ClubPetro Tecnologia de Dados, Brasil
-                </Text>
+                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brasil</Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">
-                  Intern Time
-                </Text>
-                <Text fontSize="lg">
-                  Mar 2021 - Jan 2022
-                </Text>
+                <Text fontSize="lg">Intern Time</Text>
+                <Text fontSize="lg">Mar 2021 - Jan 2022</Text>
               </Flex>
 
-              <Divider orientation="horizontal" borderColor="gray.500" my={4} w="100%" />
+              <Divider
+                orientation="horizontal"
+                borderColor="gray.500"
+                my={4}
+                w="100%"
+              />
 
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg" fontWeight="bold">
@@ -117,12 +125,8 @@ export function ExperienceSection() {
                 </Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">
-                  Full Time
-                </Text>
-                <Text fontSize="lg">
-                  Sep 2017 - Mar 2022
-                </Text>
+                <Text fontSize="lg">Full Time</Text>
+                <Text fontSize="lg">Sep 2017 - Mar 2022</Text>
               </Flex>
             </Flex>
           </Flex>
