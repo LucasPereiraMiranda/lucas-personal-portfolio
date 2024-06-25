@@ -57,11 +57,11 @@ export function ExperienceSection() {
               lineHeight="taller"
               marginLeft={{ base: "0", md: "10rem" }}
             >
-              I'm a software developer specializing in building data analysis
-              pipelines and web systems. I possess expertise in a diverse range
-              of programming languages, database modeling, and IT
-              infrastructure. I thrive on tackling challenges and am committed
-              to crafting effective, scalable solutions.
+              I'm a software developer with a specialization in building data
+              analysis pipelines and web systems. I have extensive expertise in
+              programming languages, database modeling, and IT infrastructure. I
+              thrive on tackling challenges and am dedicated to creating
+              effective, scalable solutions.
             </Text>
           </Flex>
 
