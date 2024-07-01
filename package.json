@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.9.0",
     "react-scroll": "^1.8.9",
+    "swiper": "^11.1.4",
     "typescript": "5.0.4"
   },
   "devDependencies": {
