@@ -20,7 +20,7 @@ export function Projects() {
           width="100%"
         >
           <Text
-            fontSize={{ base: "xl", md: "4xl" }}
+            fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             textAlign="center"
             as="h2"
@@ -32,6 +32,7 @@ export function Projects() {
             fontWeight="medium"
             mb="4"
             textAlign="center"
+            paddingBottom={{ base: 1, md: 10 }} // Valores diferentes para diferentes tamanhos de tela
           >
             Some projects and studies
           </Text>
