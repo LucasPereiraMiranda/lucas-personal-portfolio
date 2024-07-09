@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { Element } from "react-scroll";
-import { TechStack } from "../components/TechStack";
+import { TechStack } from "@/components/TechStack";
 import { Hero } from "@/components/Hero";
 import { Header } from "@/components/Header";
 import { ExperienceSection } from "@/components/ExperienceSection";
