@@ -1,4 +1,4 @@
-import { Flex, Text, chakra } from '@chakra-ui/react';
+import { Flex, Text, chakra } from "@chakra-ui/react";
 import { Link as ScrollLink } from "react-scroll";
 
 export function Footer() {
@@ -22,7 +22,6 @@ export function Footer() {
           rel="noopener noreferrer"
           color="blue.300"
           mx="1"
-
           as={ScrollLink}
           to="home"
           spy
