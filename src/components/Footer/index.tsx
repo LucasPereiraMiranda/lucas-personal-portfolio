@@ -11,7 +11,6 @@ export function Footer() {
       color="white"
       alignItems="center"
       justifyContent="center"
-      position="fixed"
       bottom="0"
       left="0"
     >
