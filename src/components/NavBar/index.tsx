@@ -1,4 +1,4 @@
-import { Flex, Link, useColorModeValue, chakra } from "@chakra-ui/react";
+import { Flex, useColorModeValue, chakra } from "@chakra-ui/react";
 import { Link as ScrollLink } from "react-scroll";
 interface NavbarProps {
   isSidebar?: boolean;
@@ -82,14 +82,22 @@ export function Navbar({ isSidebar }: NavbarProps) {
         Projects
       </chakra.a>
 
-      <Link href="/contact">Contact</Link>
-      {/* <Link to="about" spy smooth duration={700} offset={-70}>
-        About
-      </Link>
-      <Link>Projects</Link>
-      <Link to="projects" spy smooth duration={700} offset={-70}>
+      <chakra.a
+        as={ScrollLink}
+        to="contact"
+        spy
+        smooth
+        duration={700}
+        offset={-70}
+        color={defaultColor}
+        _hover={{
+          color: hoverColor,
+          cursor: "pointer",
+          transition: "color 0.1s ease-in-out",
+        }}
+      >
         Contact
-      </Link> */}
+      </chakra.a>
     </Flex>
   );
 }
