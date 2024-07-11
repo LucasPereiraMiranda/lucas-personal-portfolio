@@ -81,15 +81,6 @@ export function Navbar({ isSidebar }: NavbarProps) {
       >
         Projects
       </chakra.a>
-
-      <Link href="/contact">Contact</Link>
-      {/* <Link to="about" spy smooth duration={700} offset={-70}>
-        About
-      </Link>
-      <Link>Projects</Link>
-      <Link to="projects" spy smooth duration={700} offset={-70}>
-        Contact
-      </Link> */}
     </Flex>
   );
 }
