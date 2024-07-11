@@ -84,7 +84,7 @@ export function ExperienceSection() {
                 <Text fontSize="lg" fontWeight="bold">
                   Backend Mid Software Developer
                 </Text>
-                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brasil</Text>
+                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brazil</Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg">Full Time</Text>
@@ -102,7 +102,7 @@ export function ExperienceSection() {
                 <Text fontSize="lg" fontWeight="bold">
                   Intern Backend Developer
                 </Text>
-                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brasil</Text>
+                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brazil</Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg">Intern Time</Text>
@@ -121,7 +121,7 @@ export function ExperienceSection() {
                   University Student
                 </Text>
                 <Text fontSize="lg">
-                  Federal University of Ouro Preto (UFOP), Brasil
+                  Federal University of Ouro Preto (UFOP), Brazil
                 </Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
