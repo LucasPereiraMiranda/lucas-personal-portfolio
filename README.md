@@ -57,6 +57,22 @@ $ yarn dev
 
 ```
 
+### Execution preview
+
+Deployment link [here](https://lucas-pereira-miranda-github-io.vercel.app/)
+
+#### Dark theme
+
+<h1 align="center">
+    <img alt="migrations" title="#migrations" src=".github/images/dark.png" />
+</h1>
+
+#### Light theme
+
+<h1 align="center">
+    <img alt="migrations" title="#migrations" src=".github/images/light.png" />
+</h1>
+
 ## License
 
 [MIT](LICENSE)
