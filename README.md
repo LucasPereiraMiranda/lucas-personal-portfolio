@@ -23,3 +23,15 @@
 </p>
 
 <br>
+
+
+## 🚀 Techs
+
+Lucas Pereira Miranda portfolio was developed with these technologies
+
+- [React](https://react.dev/)
+- [Next](https://nextjs.org/)
+- [Chakra UI](https://v2.chakra-ui.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Scroll](https://www.npmjs.com/package/react-scroll)
+- [Swiper](https://swiperjs.com/)
