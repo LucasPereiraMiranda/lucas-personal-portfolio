@@ -39,3 +39,20 @@ Lucas Pereira Miranda portfolio was developed with these technologies
 ## 💻 Project
 
 This website has been developed with the primary objective of being my personal portfolio, to be deployed and used to showcase some projects and practice web development.
+
+## :boom: Installation
+
+```bash
+# clone this repo
+$ git clone git@github.com:LucasPereiraMiranda/lucas-pereira-miranda.github.io.git
+
+# use node 18 with .nvmrc reference
+$ nvm use
+
+# install dependencies
+$ yarn install
+
+# execute local
+$ yarn dev
+
+```
