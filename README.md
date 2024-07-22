@@ -56,3 +56,7 @@ $ yarn install
 $ yarn dev
 
 ```
+
+## License
+
+[MIT](LICENSE)
