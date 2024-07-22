@@ -35,3 +35,7 @@ Lucas Pereira Miranda portfolio was developed with these technologies
 - [Framer Motion](https://www.framer.com/motion/)
 - [React Scroll](https://www.npmjs.com/package/react-scroll)
 - [Swiper](https://swiperjs.com/)
+
+## 💻 Project
+
+This website has been developed with the primary objective of being my personal portfolio, to be deployed and used to showcase some projects and practice web development.
