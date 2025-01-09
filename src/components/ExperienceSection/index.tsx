@@ -82,13 +82,13 @@ export function ExperienceSection() {
             >
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg" fontWeight="bold">
-                  Backend Mid Software Developer
+                  Backend Software Developer
                 </Text>
                 <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brazil</Text>
               </Flex>
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg">Full Time</Text>
-                <Text fontSize="lg">Jan 2022 - atual</Text>
+                <Text fontSize="lg">Jan 2022 - Jan 2025</Text>
               </Flex>
 
               <Divider
