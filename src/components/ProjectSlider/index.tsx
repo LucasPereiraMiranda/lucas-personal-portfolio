@@ -77,17 +77,19 @@ export function ProjectSlider() {
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           slidesPerView={1}
-          spaceBetween={20}
-          navigation
-          pagination={{ clickable: true }}
+          spaceBetween={100}
+          navigation= {false}
+          pagination={{ clickable: false }}
           loop={true}
           style={{ width: "100%", height: "750px" }}
           breakpoints={{
             768: {
               slidesPerView: 2,
+              spaceBetween: 20,
             },
             1200: {
               slidesPerView: 3,
+              spaceBetween: 20,
             },
           }}
         >
@@ -101,7 +103,7 @@ export function ProjectSlider() {
                 borderRadius="12px"
                 boxShadow="lg"
                 height="100%"
-                minW="400px"
+                minW="320px"
                 maxW="500px"
                 m="auto"
               >
