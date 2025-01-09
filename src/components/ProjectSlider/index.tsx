@@ -78,7 +78,7 @@ export function ProjectSlider() {
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           slidesPerView={1}
           spaceBetween={100}
-          navigation= {false}
+          navigation={false}
           pagination={{ clickable: false }}
           loop={true}
           style={{ width: "100%", height: "750px" }}
