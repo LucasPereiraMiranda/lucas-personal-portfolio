@@ -106,7 +106,7 @@ export function ExperienceSection() {
               </Flex>
               <Flex alignItems="center" flexDirection="column">
                 <Text fontSize="lg">Intern Time</Text>
-                <Text fontSize="lg">Mar 2021 - Jan 2022</Text>
+                <Text fontSize="lg">Feb 2021 - Jan 2022</Text>
               </Flex>
 
               <Divider
