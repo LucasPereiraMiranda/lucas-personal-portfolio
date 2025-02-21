@@ -69,7 +69,7 @@ export function TechStack() {
             justifyContent="center"
           >
             <Text
-              fontSize={{ base: "xl", md: "4xl" }}
+              fontSize={{ base: "2xl", md: "4xl" }}
               fontWeight="bold"
               textAlign="center"
               as="h2"
@@ -77,7 +77,7 @@ export function TechStack() {
               My tech stack
             </Text>
             <Text
-              fontSize={{ base: "md", md: "2xl" }}
+              fontSize={{ base: "xl", md: "2xl" }}
               fontWeight="medium"
               mb="4"
               textAlign="center"

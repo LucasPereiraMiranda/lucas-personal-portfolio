@@ -20,7 +20,7 @@ export function ExperienceSection() {
           width="100%"
         >
           <Text
-            fontSize={{ base: "xl", md: "4xl" }}
+            fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             textAlign="center"
             as="h2"
@@ -28,7 +28,7 @@ export function ExperienceSection() {
             About Me
           </Text>
           <Text
-            fontSize={{ base: "md", md: "2xl" }}
+            fontSize={{ base: "xl", md: "2xl" }}
             fontWeight="medium"
             mb="4"
             textAlign="center"
@@ -52,10 +52,10 @@ export function ExperienceSection() {
           >
             <Text
               textAlign="center"
-              fontSize="xl"
-              fontWeight="bold"
+              fontSize={{ base: "unset", md: "2xl" }}
               lineHeight="taller"
               marginLeft={{ base: "0", md: "10rem" }}
+              paddingRight={{ base: "0", md: "10rem" }}
             >
               I&apos;m a software developer with a specialization in building
               data analysis pipelines and web systems. I have expertise in
