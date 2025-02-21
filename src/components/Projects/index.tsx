@@ -28,11 +28,11 @@ export function Projects() {
             Projects
           </Text>
           <Text
-            fontSize={{ base: "md", md: "2xl" }}
+            fontSize={{ base: "xl", md: "2xl" }}
             fontWeight="medium"
             mb="4"
             textAlign="center"
-            paddingBottom={{ base: 1, md: 10 }} // Valores diferentes para diferentes tamanhos de tela
+            paddingBottom={{ base: 1, md: 10 }}
           >
             Some projects and studies
           </Text>
