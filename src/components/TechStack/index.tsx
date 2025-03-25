@@ -41,6 +41,7 @@ import {
   SiMongodb,
   SiTrello,
   SiAsana,
+  SiKubernetes,
 } from "react-icons/si";
 
 import { Element } from "react-scroll";
@@ -357,6 +358,21 @@ export function TechStack() {
                     as={SiLinux}
                     boxSize={{ base: 8, md: 12 }}
                     color="#FCC624"
+                  />
+                </Link>
+                <Link
+                  href="https://kubernetes.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  _hover={{
+                    transform: "scale(1.05)",
+                    transition: "transform 1.5s",
+                  }}
+                >
+                  <Icon
+                    as={SiKubernetes}
+                    boxSize={{ base: 8, md: 12 }}
+                    color="#326CE5"
                   />
                 </Link>
               </HStack>
