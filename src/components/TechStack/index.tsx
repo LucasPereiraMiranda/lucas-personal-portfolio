@@ -1,11 +1,4 @@
-import {
-  Flex,
-  Text,
-  HStack,
-  Icon,
-  Link,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Flex, Text, HStack, Box, useColorModeValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
   SiPython,
@@ -42,12 +35,46 @@ import {
   SiTrello,
   SiAsana,
   SiKubernetes,
+  SiAngular,
+  SiMicrosoftazure,
 } from "react-icons/si";
 
 import { Element } from "react-scroll";
+import { AnimatedTechIcon } from "../AnimatedTechIcon";
+
+const MotionFlex = motion(Flex);
+const MotionText = motion(Text);
+
+const SectionTitle = ({ children }: { children: React.ReactNode }) => (
+  <MotionText
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+    fontSize={{ base: "md", md: "xl" }}
+    fontWeight="medium"
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    position="relative"
+    _after={{
+      content: '""',
+      position: "absolute",
+      bottom: "-4px",
+      left: "50%",
+      transform: "translateX(-50%)",
+      width: "40px",
+      height: "2px",
+      bgGradient: "linear(to-r, purple.400, cyan.400)",
+      borderRadius: "full",
+    }}
+    pb={2}
+  >
+    {children}
+  </MotionText>
+);
 
 export function TechStack() {
-  const baseIconColor = useColorModeValue("gray.900", "gray.100");
   return (
     <Element name="tech-stack">
       <Flex
@@ -64,28 +91,35 @@ export function TechStack() {
           justifyContent="center"
           gap={{ base: "1rem", md: "1rem", lg: "8rem" }}
         >
-          <Flex
+          <MotionFlex
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <Text
+            <MotionText
               fontSize={{ base: "2xl", md: "4xl" }}
               fontWeight="bold"
               textAlign="center"
               as="h2"
+              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgClip="text"
             >
               My tech stack
-            </Text>
+            </MotionText>
             <Text
               fontSize={{ base: "xl", md: "2xl" }}
               fontWeight="medium"
               mb="4"
               textAlign="center"
+              opacity={0.9}
             >
               Technologies I have been working on & studying recently
             </Text>
-          </Flex>
+          </MotionFlex>
 
           <Flex
             flexDirection={{ base: "column", md: "row" }}
@@ -93,642 +127,298 @@ export function TechStack() {
             gap={{ base: "2rem", md: "15rem" }}
           >
             <Flex flexDirection="column" gap={{ base: "2rem", md: "3rem" }}>
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
+              <SectionTitle>
                 Main Programming Languages & Platforms
-              </Text>
+              </SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://golang.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiGo}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#00ADD8"
-                  />
-                </Link>
-                <Link
+                  icon={SiGo}
+                  color="#00ADD8"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://www.python.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiPython}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#3776AB"
-                  />
-                </Link>
-                <Link
+                  icon={SiPython}
+                  color="#3776AB"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://nodejs.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiNodedotjs}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#339933"
-                  />
-                </Link>
-                <Link
+                  icon={SiNodedotjs}
+                  color="#339933"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiJavascript}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#F7DF1E"
-                  />
-                </Link>
-                <Link
+                  icon={SiJavascript}
+                  color="#F7DF1E"
+                  delay={0.3}
+                />
+                <AnimatedTechIcon
                   href="https://www.typescriptlang.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiTypescript}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#007ACC"
-                  />
-                </Link>
+                  icon={SiTypescript}
+                  color="#007ACC"
+                  delay={0.4}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Main Frontend Technologies
-              </Text>
+              <SectionTitle>Main Frontend Technologies</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiHtml5}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#E34F26"
-                  />
-                </Link>
-                <Link
+                  icon={SiHtml5}
+                  color="#E34F26"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiCss3}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#1572B6"
-                  />
-                </Link>
-                <Link
+                  icon={SiCss3}
+                  color="#1572B6"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://reactjs.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiReact}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#61DAFB"
-                  />
-                </Link>
-                <Link
+                  icon={SiReact}
+                  color="#61DAFB"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://chakra-ui.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiChakraui}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#319795"
-                  />
-                </Link>
-                <Link
+                  icon={SiChakraui}
+                  color="#319795"
+                  delay={0.3}
+                />
+                <AnimatedTechIcon
                   href="https://nextjs.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon as={SiNextdotjs} boxSize={{ base: 8, md: 12 }} />
-                </Link>
+                  icon={SiNextdotjs}
+                  useBaseColor
+                  delay={0.4}
+                />
+                <AnimatedTechIcon
+                  href="https://angular.io/"
+                  icon={SiAngular}
+                  color="#DD0031"
+                  delay={0.5}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Main Infrastructure Technologies
-              </Text>
+              <SectionTitle>Main Infrastructure Technologies</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://www.docker.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiDocker}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#2496ED"
-                  />
-                </Link>
-                <Link
+                  icon={SiDocker}
+                  color="#2496ED"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://aws.amazon.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiAmazonaws}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#FF9900"
-                  />
-                </Link>
-                <Link
+                  icon={SiAmazonaws}
+                  color="#FF9900"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://cloud.google.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiGooglecloud}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#4285F4"
-                  />
-                </Link>
-                <Link
+                  icon={SiGooglecloud}
+                  color="#4285F4"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://www.debian.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiDebian}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#A81D33"
-                  />
-                </Link>
-                <Link
+                  icon={SiDebian}
+                  color="#A81D33"
+                  delay={0.3}
+                />
+                <AnimatedTechIcon
                   href="https://www.linux.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiLinux}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#FCC624"
-                  />
-                </Link>
-                <Link
+                  icon={SiLinux}
+                  color="#FCC624"
+                  delay={0.4}
+                />
+                <AnimatedTechIcon
                   href="https://kubernetes.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiKubernetes}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#326CE5"
-                  />
-                </Link>
+                  icon={SiKubernetes}
+                  color="#326CE5"
+                  delay={0.5}
+                />
+                <AnimatedTechIcon
+                  href="https://azure.microsoft.com/"
+                  icon={SiMicrosoftazure}
+                  color="#0078D4"
+                  delay={0.6}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
+              <SectionTitle>
                 Data Persistence Technologies and DBMS
-              </Text>
+              </SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://redis.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiRedis}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#DC382D"
-                  />
-                </Link>
-                <Link
+                  icon={SiRedis}
+                  color="#DC382D"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://www.mysql.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiMysql}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#4479A1"
-                  />
-                </Link>
-                <Link
+                  icon={SiMysql}
+                  color="#4479A1"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://www.postgresql.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiPostgresql}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#336791"
-                  />
-                </Link>
-                <Link
+                  icon={SiPostgresql}
+                  color="#336791"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://www.mongodb.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiMongodb}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#47A248"
-                  />
-                </Link>
+                  icon={SiMongodb}
+                  color="#47A248"
+                  delay={0.3}
+                />
               </HStack>
             </Flex>
 
             <Flex flexDirection="column" gap={{ base: "2rem", md: "3rem" }}>
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Backend Frameworks
-              </Text>
+              <SectionTitle>Backend Frameworks</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://nestjs.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiNestjs}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#E0234E"
-                  />
-                </Link>
-                <Link
+                  icon={SiNestjs}
+                  color="#E0234E"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://www.fastify.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiFastify}
-                    boxSize={{ base: 8, md: 12 }}
-                    color={baseIconColor}
-                  />
-                </Link>
-                <Link
+                  icon={SiFastify}
+                  useBaseColor
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://expressjs.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiExpress}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#007396"
-                  />
-                </Link>
+                  icon={SiExpress}
+                  color="#007396"
+                  delay={0.2}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Remote Cloud Repository and Git Tools
-              </Text>
+              <SectionTitle>Remote Cloud Repository and Git Tools</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://git-scm.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiGit}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#F05032"
-                  />
-                </Link>
-                <Link
+                  icon={SiGit}
+                  color="#F05032"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://bitbucket.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiBitbucket}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#0052CC"
-                  />
-                </Link>
-                <Link
+                  icon={SiBitbucket}
+                  color="#0052CC"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://about.gitlab.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiGitlab}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#FC6D26"
-                  />
-                </Link>
-                <Link
+                  icon={SiGitlab}
+                  color="#FC6D26"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://github.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiGithub}
-                    boxSize={{ base: 8, md: 12 }}
-                    color={baseIconColor}
-                  />
-                </Link>
+                  icon={SiGithub}
+                  useBaseColor
+                  delay={0.3}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Agility and Documentation
-              </Text>
+              <SectionTitle>Agility and Documentation</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://www.notion.so/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiNotion}
-                    boxSize={{ base: 8, md: 12 }}
-                    color={baseIconColor}
-                  />
-                </Link>
-                <Link
+                  icon={SiNotion}
+                  useBaseColor
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://www.atlassian.com/software/jira"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiJira}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#0052CC"
-                  />
-                </Link>
-
-                <Link
+                  icon={SiJira}
+                  color="#0052CC"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://trello.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiTrello}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#0079BF"
-                  />
-                </Link>
-
-                <Link
+                  icon={SiTrello}
+                  color="#0079BF"
+                  delay={0.2}
+                />
+                <AnimatedTechIcon
                   href="https://asana.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiAsana}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#FF6364"
-                  />
-                </Link>
+                  icon={SiAsana}
+                  color="#FF6364"
+                  delay={0.3}
+                />
               </HStack>
 
-              <Text
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize={{ base: "md", md: "xl" }}
-                fontWeight="medium"
-              >
-                Favorite Text Editors
-              </Text>
+              <SectionTitle>Favorite Text Editors</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
-                spacing={{ base: "2rem", md: "4rem" }}
+                spacing={{ base: "1rem", md: "2rem" }}
+                flexWrap="wrap"
               >
-                <Link
+                <AnimatedTechIcon
                   href="https://code.visualstudio.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiVisualstudiocode}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#007ACC"
-                  />
-                </Link>
-                <Link
+                  icon={SiVisualstudiocode}
+                  color="#007ACC"
+                  delay={0}
+                />
+                <AnimatedTechIcon
                   href="https://www.sublimetext.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiSublimetext}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#FF9800"
-                  />
-                </Link>
-                <Link
+                  icon={SiSublimetext}
+                  color="#FF9800"
+                  delay={0.1}
+                />
+                <AnimatedTechIcon
                   href="https://www.vim.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  _hover={{
-                    transform: "scale(1.05)",
-                    transition: "transform 1.5s",
-                  }}
-                >
-                  <Icon
-                    as={SiVim}
-                    boxSize={{ base: 8, md: 12 }}
-                    color="#019733"
-                  />
-                </Link>
+                  icon={SiVim}
+                  color="#019733"
+                  delay={0.2}
+                />
               </HStack>
             </Flex>
           </Flex>
