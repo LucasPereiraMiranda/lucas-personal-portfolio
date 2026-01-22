@@ -18,6 +18,7 @@ export interface Project {
   id: string;
   name: string;
   description: string;
+  descriptionPt?: string;
   image: string;
   technologies: string[];
   type: ProjectType;

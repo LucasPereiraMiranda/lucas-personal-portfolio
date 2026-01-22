@@ -193,7 +193,7 @@ export function ProjectSlider() {
                     fontSize="2xl"
                     fontWeight="bold"
                     textAlign="center"
-                    bgGradient="linear(to-r, purple.400, cyan.400)"
+                    bgGradient="linear(to-r, teal.400, cyan.400)"
                     bgClip="text"
                   >
                     {project.name}

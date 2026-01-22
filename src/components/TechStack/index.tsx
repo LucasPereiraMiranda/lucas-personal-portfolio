@@ -41,6 +41,7 @@ import {
 
 import { Element } from "react-scroll";
 import { AnimatedTechIcon } from "../AnimatedTechIcon";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionFlex = motion(Flex);
 const MotionText = motion(Text);
@@ -65,7 +66,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
       transform: "translateX(-50%)",
       width: "40px",
       height: "2px",
-      bgGradient: "linear(to-r, purple.400, cyan.400)",
+      bgGradient: "linear(to-r, teal.400, cyan.400)",
       borderRadius: "full",
     }}
     pb={2}
@@ -75,6 +76,8 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 export function TechStack() {
+  const { t } = useLocale();
+
   return (
     <Element name="tech-stack">
       <Flex
@@ -105,10 +108,10 @@ export function TechStack() {
               fontWeight="bold"
               textAlign="center"
               as="h2"
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
             >
-              My tech stack
+              {t.techStack.title}
             </MotionText>
             <Text
               fontSize={{ base: "xl", md: "2xl" }}
@@ -117,7 +120,7 @@ export function TechStack() {
               textAlign="center"
               opacity={0.9}
             >
-              Technologies I have been working on & studying recently
+              {t.techStack.subtitle}
             </Text>
           </MotionFlex>
 
@@ -127,9 +130,7 @@ export function TechStack() {
             gap={{ base: "2rem", md: "15rem" }}
           >
             <Flex flexDirection="column" gap={{ base: "2rem", md: "3rem" }}>
-              <SectionTitle>
-                Main Programming Languages & Platforms
-              </SectionTitle>
+              <SectionTitle>{t.techStack.sections.languages}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -168,7 +169,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>Main Frontend Technologies</SectionTitle>
+              <SectionTitle>{t.techStack.sections.frontend}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -213,7 +214,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>Main Infrastructure Technologies</SectionTitle>
+              <SectionTitle>{t.techStack.sections.infrastructure}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -264,9 +265,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>
-                Data Persistence Technologies and DBMS
-              </SectionTitle>
+              <SectionTitle>{t.techStack.sections.databases}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -301,7 +300,7 @@ export function TechStack() {
             </Flex>
 
             <Flex flexDirection="column" gap={{ base: "2rem", md: "3rem" }}>
-              <SectionTitle>Backend Frameworks</SectionTitle>
+              <SectionTitle>{t.techStack.sections.backend}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -328,7 +327,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>Remote Cloud Repository and Git Tools</SectionTitle>
+              <SectionTitle>{t.techStack.sections.git}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -361,7 +360,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>Agility and Documentation</SectionTitle>
+              <SectionTitle>{t.techStack.sections.agility}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"
@@ -394,7 +393,7 @@ export function TechStack() {
                 />
               </HStack>
 
-              <SectionTitle>Favorite Text Editors</SectionTitle>
+              <SectionTitle>{t.techStack.sections.editors}</SectionTitle>
               <HStack
                 align="center"
                 justifyContent="center"

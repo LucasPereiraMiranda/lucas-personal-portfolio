@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
@@ -28,11 +29,19 @@ const experiences: Experience[] = [
   {
     id: "1",
     company: "ClubPetro",
-    role: "Software Engineer",
+    role: "Fullstack Software Engineer",
     period: "Nov 2025 - Present",
     location: "Itabira, MG",
     type: "Full Time · Remote",
-    technologies: ["TypeScript", "Node.js", "Nest.js", "PostgreSQL"],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Redis",
+      "React",
+      "Google Cloud Platform",
+    ],
     current: true,
   },
   {
@@ -51,7 +60,14 @@ const experiences: Experience[] = [
     period: "Jan 2022 - Apr 2025",
     location: "Itabira, MG",
     type: "Full Time",
-    technologies: ["Node.js", "Python", "Docker", "PostgreSQL", "Redis"],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Redis",
+      "Google Cloud Platform",
+    ],
   },
   {
     id: "4",
@@ -60,16 +76,21 @@ const experiences: Experience[] = [
     period: "Feb 2021 - Jan 2022",
     location: "Itabira, MG",
     type: "Intern",
-    technologies: ["Node.js", "JavaScript", "MySQL"],
+    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis"],
   },
   {
     id: "5",
     company: "UFOP",
-    role: "Computer Science Student",
+    role: "Computer Engineering Student",
     period: "Sep 2017 - Mar 2022",
     location: "Ouro Preto, MG",
     type: "Full Time",
-    technologies: ["Algorithms", "Data Structures", "Software Engineering"],
+    technologies: [
+      "Algorithms",
+      "Data Structures",
+      "Software Engineering",
+      "Data Science",
+    ],
   },
 ];
 
@@ -99,7 +120,13 @@ const itemVariants = {
   },
 };
 
-function ExperienceCard({ experience }: { experience: Experience }) {
+function ExperienceCard({
+  experience,
+  currentLabel,
+}: {
+  experience: Experience;
+  currentLabel: string;
+}) {
   const cardBg = useColorModeValue(
     "rgba(255, 255, 255, 0.1)",
     "rgba(26, 32, 44, 0.6)"
@@ -133,8 +160,8 @@ function ExperienceCard({ experience }: { experience: Experience }) {
         right: 0,
         height: "3px",
         bgGradient: experience.current
-          ? "linear(to-r, purple.400, cyan.400)"
-          : "linear(to-r, purple.200, cyan.200)",
+          ? "linear(to-r, teal.400, cyan.400)"
+          : "linear(to-r, teal.200, cyan.200)",
       }}
     >
       <VStack align="stretch" spacing={3}>
@@ -142,21 +169,21 @@ function ExperienceCard({ experience }: { experience: Experience }) {
           <Text
             fontSize={{ base: "lg", md: "xl" }}
             fontWeight="bold"
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
           >
             {experience.role}
           </Text>
           {experience.current && (
             <Badge
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               color="white"
               px={3}
               py={1}
               borderRadius="full"
               fontSize="xs"
             >
-              Current
+              {currentLabel}
             </Badge>
           )}
         </HStack>
@@ -179,7 +206,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
               <Badge
                 key={tech}
                 bg="rgba(167, 139, 250, 0.15)"
-                color="purple.300"
+                color="teal.300"
                 px={3}
                 py={1}
                 borderRadius="md"
@@ -204,9 +231,9 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
       width="16px"
       height="16px"
       borderRadius="full"
-      bg={isCurrent ? "purple.400" : "cyan.400"}
+      bg={isCurrent ? "teal.400" : "cyan.400"}
       border="3px solid"
-      borderColor={isCurrent ? "purple.200" : "cyan.200"}
+      borderColor={isCurrent ? "teal.200" : "cyan.200"}
       boxShadow={
         isCurrent
           ? "0 0 20px rgba(167, 139, 250, 0.6)"
@@ -234,6 +261,7 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
 
 export function ExperienceSection() {
   const timelineColor = useColorModeValue("gray.300", "gray.600");
+  const { t } = useLocale();
 
   return (
     <Element name="about">
@@ -259,11 +287,11 @@ export function ExperienceSection() {
             fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             textAlign="center"
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
             mb={2}
           >
-            Professional Experience
+            {t.experience.title}
           </Text>
           <Text
             fontSize={{ base: "lg", md: "xl" }}
@@ -272,7 +300,7 @@ export function ExperienceSection() {
             opacity={0.8}
             maxW="600px"
           >
-            My journey through the tech industry
+            {t.experience.subtitle}
           </Text>
         </MotionFlex>
 
@@ -292,7 +320,7 @@ export function ExperienceSection() {
             top="0"
             bottom="0"
             width="2px"
-            bgGradient="linear(to-b, purple.400, cyan.400)"
+            bgGradient="linear(to-b, teal.400, cyan.400)"
             opacity={0.5}
             transform={{ md: "translateX(-50%)" }}
             zIndex={0}
@@ -332,7 +360,10 @@ export function ExperienceSection() {
                   flex={1}
                   pr={8}
                 >
-                  <ExperienceCard experience={exp} />
+                  <ExperienceCard
+                    experience={exp}
+                    currentLabel={t.experience.current}
+                  />
                 </Box>
 
                 {/* Center Dot for Desktop */}
@@ -357,7 +388,10 @@ export function ExperienceSection() {
                   flex={1}
                   pl={{ base: 0, md: 8 }}
                 >
-                  <ExperienceCard experience={exp} />
+                  <ExperienceCard
+                    experience={exp}
+                    currentLabel={t.experience.current}
+                  />
                 </Box>
 
                 {/* Spacer for right side (Desktop even indexes) */}
