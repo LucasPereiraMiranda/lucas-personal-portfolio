@@ -1,136 +1,377 @@
-import React from "react";
-import { Flex, Text, Divider } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Text,
+  VStack,
+  HStack,
+  Badge,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { Element } from "react-scroll";
 
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
+
+interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  type: string;
+  technologies?: string[];
+  current?: boolean;
+}
+
+const experiences: Experience[] = [
+  {
+    id: "1",
+    company: "ClubPetro",
+    role: "Software Engineer",
+    period: "Nov 2025 - Present",
+    location: "Itabira, MG",
+    type: "Full Time · Remote",
+    technologies: ["TypeScript", "Node.js", "Nest.js", "PostgreSQL"],
+    current: true,
+  },
+  {
+    id: "2",
+    company: "Tegra",
+    role: "Fullstack Software Engineer",
+    period: "Apr 2025 - Nov 2025",
+    location: "Sorocaba, SP",
+    type: "Full Time · Remote",
+    technologies: ["Angular", "Node.js", "TypeScript", "Azure"],
+  },
+  {
+    id: "3",
+    company: "ClubPetro",
+    role: "Backend Software Developer",
+    period: "Jan 2022 - Apr 2025",
+    location: "Itabira, MG",
+    type: "Full Time",
+    technologies: ["Node.js", "Python", "Docker", "PostgreSQL", "Redis"],
+  },
+  {
+    id: "4",
+    company: "ClubPetro",
+    role: "Intern Backend Developer",
+    period: "Feb 2021 - Jan 2022",
+    location: "Itabira, MG",
+    type: "Intern",
+    technologies: ["Node.js", "JavaScript", "MySQL"],
+  },
+  {
+    id: "5",
+    company: "UFOP",
+    role: "Computer Science Student",
+    period: "Sep 2017 - Mar 2022",
+    location: "Ouro Preto, MG",
+    type: "Full Time",
+    technologies: ["Algorithms", "Data Structures", "Software Engineering"],
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    x: -30,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+function ExperienceCard({ experience }: { experience: Experience }) {
+  const cardBg = useColorModeValue(
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(26, 32, 44, 0.6)"
+  );
+  const cardBorder = useColorModeValue(
+    "rgba(255, 255, 255, 0.2)",
+    "rgba(255, 255, 255, 0.1)"
+  );
+
+  return (
+    <MotionBox
+      variants={itemVariants}
+      bg={cardBg}
+      backdropFilter="blur(10px)"
+      borderRadius="xl"
+      p={6}
+      border="1px solid"
+      borderColor={cardBorder}
+      position="relative"
+      overflow="hidden"
+      whileHover={{
+        scale: 1.02,
+        borderColor: "rgba(167, 139, 250, 0.5)",
+      }}
+      transition={{ duration: 0.2 }}
+      _before={{
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        height: "3px",
+        bgGradient: experience.current
+          ? "linear(to-r, purple.400, cyan.400)"
+          : "linear(to-r, purple.200, cyan.200)",
+      }}
+    >
+      <VStack align="stretch" spacing={3}>
+        <HStack justify="space-between" align="flex-start">
+          <Text
+            fontSize={{ base: "lg", md: "xl" }}
+            fontWeight="bold"
+            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgClip="text"
+          >
+            {experience.role}
+          </Text>
+          {experience.current && (
+            <Badge
+              bgGradient="linear(to-r, purple.400, cyan.400)"
+              color="white"
+              px={3}
+              py={1}
+              borderRadius="full"
+              fontSize="xs"
+            >
+              Current
+            </Badge>
+          )}
+        </HStack>
+
+        <Text fontSize="md" fontWeight="semibold" opacity={0.9}>
+          {experience.company}
+        </Text>
+
+        <HStack spacing={2} fontSize="sm" opacity={0.7} flexWrap="wrap" gap={2}>
+          <Text>{experience.period}</Text>
+          <Text>•</Text>
+          <Text>{experience.type}</Text>
+          <Text>•</Text>
+          <Text>{experience.location}</Text>
+        </HStack>
+
+        {experience.technologies && experience.technologies.length > 0 && (
+          <HStack spacing={2} flexWrap="wrap" pt={2}>
+            {experience.technologies.map((tech) => (
+              <Badge
+                key={tech}
+                bg="rgba(167, 139, 250, 0.15)"
+                color="purple.300"
+                px={3}
+                py={1}
+                borderRadius="md"
+                fontSize="xs"
+                border="1px solid"
+                borderColor="rgba(167, 139, 250, 0.3)"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </HStack>
+        )}
+      </VStack>
+    </MotionBox>
+  );
+}
+
+function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
+  return (
+    <Box
+      position="relative"
+      width="16px"
+      height="16px"
+      borderRadius="full"
+      bg={isCurrent ? "purple.400" : "cyan.400"}
+      border="3px solid"
+      borderColor={isCurrent ? "purple.200" : "cyan.200"}
+      boxShadow={
+        isCurrent
+          ? "0 0 20px rgba(167, 139, 250, 0.6)"
+          : "0 0 10px rgba(34, 211, 238, 0.4)"
+      }
+      zIndex={2}
+      sx={
+        isCurrent
+          ? {
+              animation: "pulse 2s ease-in-out infinite",
+              "@keyframes pulse": {
+                "0%, 100%": {
+                  boxShadow: "0 0 20px rgba(167, 139, 250, 0.6)",
+                },
+                "50%": {
+                  boxShadow: "0 0 30px rgba(167, 139, 250, 0.9)",
+                },
+              },
+            }
+          : {}
+      }
+    />
+  );
+}
+
 export function ExperienceSection() {
+  const timelineColor = useColorModeValue("gray.300", "gray.600");
+
   return (
     <Element name="about">
       <Flex
-        minHeight={"100vh"}
+        minHeight="100vh"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
-        mt={{ base: "4rem", md: "2.5rem" }}
-        mb={{ base: "4rem", md: "8rem" }}
+        py={{ base: "4rem", md: "6rem" }}
+        px={{ base: "1rem", md: "2rem" }}
       >
-        <Flex
+        <MotionFlex
           flexDirection="column"
           alignItems="center"
           justifyContent="center"
-          width="100%"
+          mb={{ base: "2rem", md: "4rem" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
           <Text
             fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             textAlign="center"
-            as="h2"
+            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgClip="text"
+            mb={2}
           >
-            About Me
+            Professional Experience
           </Text>
           <Text
-            fontSize={{ base: "xl", md: "2xl" }}
+            fontSize={{ base: "lg", md: "xl" }}
             fontWeight="medium"
-            mb="4"
             textAlign="center"
+            opacity={0.8}
+            maxW="600px"
           >
-            A little more about my career
+            My journey through the tech industry
           </Text>
-        </Flex>
+        </MotionFlex>
 
-        <Flex
-          width="100%"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection={{ base: "column", md: "row" }}
+        <MotionBox
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          position="relative"
+          maxW="800px"
+          w="100%"
         >
-          <Flex
-            width={{ base: "100%", md: "50%" }}
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            px={{ base: "4", md: "0" }}
-          >
-            <Text
-              textAlign="center"
-              fontSize={{ base: "unset", md: "2xl" }}
-              lineHeight="taller"
-              marginLeft={{ base: "0", md: "10rem" }}
-              paddingRight={{ base: "0", md: "10rem" }}
-            >
-              I&apos;m a software developer with a specialization in building
-              data analysis pipelines and web systems. I have expertise in
-              programming languages, database modeling, and IT infrastructure. I
-              thrive on tackling challenges and am dedicated to creating
-              effective, scalable solutions.
-            </Text>
-          </Flex>
+          {/* Timeline Line */}
+          <Box
+            position="absolute"
+            left={{ base: "7px", md: "50%" }}
+            top="0"
+            bottom="0"
+            width="2px"
+            bgGradient="linear(to-b, purple.400, cyan.400)"
+            opacity={0.5}
+            transform={{ md: "translateX(-50%)" }}
+            zIndex={0}
+          />
 
-          <Flex
-            width={{ base: "100%", md: "50%" }}
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            px={{ base: "4", md: "0" }}
-          >
-            <Flex
-              alignItems="center"
-              flexDirection="column"
-              justifyContent="space-between"
-              mt={8}
-              gap={4}
-              width="100%"
-            >
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg" fontWeight="bold">
-                  Backend Software Developer
-                </Text>
-                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brazil</Text>
-              </Flex>
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">Full Time</Text>
-                <Text fontSize="lg">Jan 2022 - Jan 2025</Text>
-              </Flex>
+          <VStack spacing={8} align="stretch">
+            {experiences.map((exp, index) => (
+              <Flex
+                key={exp.id}
+                position="relative"
+                flexDirection={{ base: "row", md: "row" }}
+                align="flex-start"
+              >
+                {/* Timeline Dot - Mobile & Desktop Left */}
+                <Box
+                  display={{
+                    base: "flex",
+                    md: index % 2 === 0 ? "none" : "flex",
+                  }}
+                  position={{ base: "relative", md: "absolute" }}
+                  left={{ md: "50%" }}
+                  transform={{ md: "translateX(-50%)" }}
+                  alignItems="flex-start"
+                  pt={2}
+                  mr={{ base: 4, md: 0 }}
+                  zIndex={2}
+                >
+                  <TimelineDot isCurrent={exp.current} />
+                </Box>
 
-              <Divider
-                orientation="horizontal"
-                borderColor="gray.500"
-                my={4}
-                w="100%"
-              />
+                {/* Left Side Card (Desktop only - even indexes) */}
+                <Box
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "block" : "none",
+                  }}
+                  flex={1}
+                  pr={8}
+                >
+                  <ExperienceCard experience={exp} />
+                </Box>
 
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg" fontWeight="bold">
-                  Intern Backend Developer
-                </Text>
-                <Text fontSize="lg">ClubPetro Tecnologia de Dados, Brazil</Text>
-              </Flex>
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">Intern Time</Text>
-                <Text fontSize="lg">Feb 2021 - Jan 2022</Text>
-              </Flex>
+                {/* Center Dot for Desktop */}
+                <Box
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "flex" : "none",
+                  }}
+                  alignItems="flex-start"
+                  pt={2}
+                  zIndex={2}
+                >
+                  <TimelineDot isCurrent={exp.current} />
+                </Box>
 
-              <Divider
-                orientation="horizontal"
-                borderColor="gray.500"
-                my={4}
-                w="100%"
-              />
+                {/* Right Side Card (Desktop odd indexes) / All cards on Mobile */}
+                <Box
+                  display={{
+                    base: "block",
+                    md: index % 2 === 0 ? "none" : "block",
+                  }}
+                  flex={1}
+                  pl={{ base: 0, md: 8 }}
+                >
+                  <ExperienceCard experience={exp} />
+                </Box>
 
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg" fontWeight="bold">
-                  University Student
-                </Text>
-                <Text fontSize="lg">
-                  Federal University of Ouro Preto (UFOP), Brazil
-                </Text>
+                {/* Spacer for right side (Desktop even indexes) */}
+                <Box
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "block" : "none",
+                  }}
+                  flex={1}
+                />
               </Flex>
-              <Flex alignItems="center" flexDirection="column">
-                <Text fontSize="lg">Full Time</Text>
-                <Text fontSize="lg">Sep 2017 - Mar 2022</Text>
-              </Flex>
-            </Flex>
-          </Flex>
-        </Flex>
+            ))}
+          </VStack>
+        </MotionBox>
       </Flex>
     </Element>
   );
