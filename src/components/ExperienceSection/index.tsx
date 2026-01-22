@@ -40,7 +40,7 @@ const experiences: Experience[] = [
       "PostgreSQL",
       "Redis",
       "React",
-      "Google Cloud Platform"
+      "Google Cloud Platform",
     ],
     current: true,
   },
@@ -60,7 +60,14 @@ const experiences: Experience[] = [
     period: "Jan 2022 - Apr 2025",
     location: "Itabira, MG",
     type: "Full Time",
-    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis", "Google Cloud Platform"],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Redis",
+      "Google Cloud Platform",
+    ],
   },
   {
     id: "4",
@@ -78,7 +85,12 @@ const experiences: Experience[] = [
     period: "Sep 2017 - Mar 2022",
     location: "Ouro Preto, MG",
     type: "Full Time",
-    technologies: ["Algorithms", "Data Structures", "Software Engineering", "Data Science"],
+    technologies: [
+      "Algorithms",
+      "Data Structures",
+      "Software Engineering",
+      "Data Science",
+    ],
   },
 ];
 
