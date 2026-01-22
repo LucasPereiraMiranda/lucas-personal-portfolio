@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import { SocialButton } from "../SocialButton";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionStack = motion(Stack);
 const MotionImage = motion(Image);
@@ -10,6 +11,10 @@ const MotionFlex = motion(Flex);
 const MotionBox = motion(Box);
 
 export function Hero() {
+  const { t } = useLocale();
+
+  const typeSequence = t.hero.sequences.flatMap((text) => [text, 2000]);
+
   return (
     <Flex
       align="center"
@@ -79,7 +84,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <Text fontSize={{ base: "3xl", md: "5xl" }} fontWeight="bold" mb="2">
-            Hi there!{" "}
+            {t.hero.greeting}{" "}
             <motion.span
               initial={{ rotate: 0 }}
               animate={{ rotate: [0, 20, -20, 20, 0] }}
@@ -90,7 +95,7 @@ export function Hero() {
             </motion.span>
           </Text>
           <Text fontSize={{ base: "2xl", md: "3xl" }} fontWeight="bold" mb="2">
-            I&apos;m{" "}
+            {t.hero.intro}{" "}
             <Text
               as="span"
               textStyle="bordedGradientText"
@@ -106,18 +111,8 @@ export function Hero() {
             minHeight={{ base: "60px", md: "40px" }}
           >
             <TypeAnimation
-              sequence={[
-                "Crafting Digital Experiences",
-                2000,
-                "Transforming Ideas into Reality",
-                2000,
-                "Building Scalable Solutions",
-                2000,
-                "Full Stack Developer",
-                2000,
-                "Software Engineer",
-                2000,
-              ]}
+              key={t.hero.sequences[0]}
+              sequence={typeSequence}
               wrapper="span"
               speed={50}
               repeat={Infinity}

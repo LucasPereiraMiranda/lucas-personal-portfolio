@@ -20,7 +20,14 @@ import {
 import { Element } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, FormEvent } from "react";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaPaperPlane } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaEnvelope,
+  FaPaperPlane,
+} from "react-icons/fa";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionFlex = motion(Flex);
 const MotionBox = motion(Box);
@@ -47,6 +54,7 @@ interface FormStatus {
 }
 
 export function Contact() {
+  const { t } = useLocale();
   const toast = useToast();
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -81,25 +89,25 @@ export function Contact() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = t.contact.validation.nameRequired;
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
+      newErrors.name = t.contact.validation.nameMin;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = t.contact.validation.emailRequired;
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = "Invalid email";
+      newErrors.email = t.contact.validation.emailInvalid;
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "Subject is required";
+      newErrors.subject = t.contact.validation.subjectRequired;
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = t.contact.validation.messageRequired;
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
+      newErrors.message = t.contact.validation.messageMin;
     }
 
     setErrors(newErrors);
@@ -118,8 +126,8 @@ export function Contact() {
 
     if (!validateForm()) {
       toast({
-        title: "Validation error",
-        description: "Please fill in all fields correctly.",
+        title: t.contact.toast.validationError,
+        description: t.contact.toast.validationDescription,
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -155,8 +163,8 @@ export function Contact() {
         setFormData({ name: "", email: "", subject: "", message: "" });
 
         toast({
-          title: "Message sent!",
-          description: "Thank you for reaching out. I'll get back to you soon!",
+          title: t.contact.toast.successTitle,
+          description: t.contact.toast.successDescription,
           status: "success",
           duration: 5000,
           isClosable: true,
@@ -173,9 +181,8 @@ export function Contact() {
       setStatus({ loading: false, success: false, error: true });
 
       toast({
-        title: "Error sending message",
-        description:
-          "An error occurred. Please try again or contact me directly via email.",
+        title: t.contact.toast.errorTitle,
+        description: t.contact.toast.errorDescription,
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -278,7 +285,7 @@ export function Contact() {
               mb="4"
               textAlign="center"
             >
-              Get In Touch
+              {t.contact.title}
             </Text>
             <Text
               fontSize={{ base: "md", md: "lg" }}
@@ -286,8 +293,7 @@ export function Contact() {
               maxW="600px"
               textAlign="center"
             >
-              Feel free to reach out for tech discussions, collaborations, or
-              just to connect.
+              {t.contact.subtitle}
             </Text>
           </MotionFlex>
 
@@ -325,14 +331,14 @@ export function Contact() {
                 <VStack spacing={5}>
                   <FormControl isInvalid={!!errors.name}>
                     <FormLabel color="gray.300" fontSize="sm">
-                      Name
+                      {t.contact.form.name}
                     </FormLabel>
                     <Input
                       value={formData.name}
                       onChange={(e) =>
                         handleInputChange("name", e.target.value)
                       }
-                      placeholder="Your name"
+                      placeholder={t.contact.form.namePlaceholder}
                       bg="rgba(0, 0, 0, 0.2)"
                       border="1px solid"
                       borderColor="whiteAlpha.200"
@@ -348,7 +354,7 @@ export function Contact() {
 
                   <FormControl isInvalid={!!errors.email}>
                     <FormLabel color="gray.300" fontSize="sm">
-                      Email
+                      {t.contact.form.email}
                     </FormLabel>
                     <Input
                       type="email"
@@ -356,7 +362,7 @@ export function Contact() {
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      placeholder="your.email@example.com"
+                      placeholder={t.contact.form.emailPlaceholder}
                       bg="rgba(0, 0, 0, 0.2)"
                       border="1px solid"
                       borderColor="whiteAlpha.200"
@@ -372,14 +378,14 @@ export function Contact() {
 
                   <FormControl isInvalid={!!errors.subject}>
                     <FormLabel color="gray.300" fontSize="sm">
-                      Subject
+                      {t.contact.form.subject}
                     </FormLabel>
                     <Input
                       value={formData.subject}
                       onChange={(e) =>
                         handleInputChange("subject", e.target.value)
                       }
-                      placeholder="What would you like to talk about?"
+                      placeholder={t.contact.form.subjectPlaceholder}
                       bg="rgba(0, 0, 0, 0.2)"
                       border="1px solid"
                       borderColor="whiteAlpha.200"
@@ -395,14 +401,14 @@ export function Contact() {
 
                   <FormControl isInvalid={!!errors.message}>
                     <FormLabel color="gray.300" fontSize="sm">
-                      Message
+                      {t.contact.form.message}
                     </FormLabel>
                     <Textarea
                       value={formData.message}
                       onChange={(e) =>
                         handleInputChange("message", e.target.value)
                       }
-                      placeholder="Your message..."
+                      placeholder={t.contact.form.messagePlaceholder}
                       rows={5}
                       bg="rgba(0, 0, 0, 0.2)"
                       border="1px solid"
@@ -431,12 +437,12 @@ export function Contact() {
                     }}
                     _active={{ transform: "translateY(0)" }}
                     isLoading={status.loading}
-                    loadingText="Sending..."
+                    loadingText={t.contact.form.sending}
                     rightIcon={<Icon as={FaPaperPlane} />}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    {status.success ? "Sent!" : "Send Message"}
+                    {status.success ? t.contact.form.sent : t.contact.form.send}
                   </MotionButton>
 
                   <AnimatePresence>
@@ -455,7 +461,7 @@ export function Contact() {
                           textAlign="center"
                           fontSize="sm"
                         >
-                          Message sent successfully!
+                          {t.contact.status.success}
                         </Box>
                       </motion.div>
                     )}
@@ -475,7 +481,7 @@ export function Contact() {
                           textAlign="center"
                           fontSize="sm"
                         >
-                          Error sending. Please try again.
+                          {t.contact.status.error}
                         </Box>
                       </motion.div>
                     )}
@@ -509,13 +515,13 @@ export function Contact() {
                     bgGradient="linear(to-r, teal.400, cyan.400)"
                     bgClip="text"
                   >
-                    Information
+                    {t.contact.info.title}
                   </Text>
 
                   <VStack align="start" spacing={5}>
                     <Box>
                       <Text color="gray.400" fontSize="sm" mb={1}>
-                        Email
+                        {t.contact.info.email}
                       </Text>
                       <Link
                         href="mailto:lucas.pereira.miranda01@gmail.com"
@@ -529,10 +535,10 @@ export function Contact() {
 
                     <Box>
                       <Text color="gray.400" fontSize="sm" mb={1}>
-                        Location
+                        {t.contact.info.location}
                       </Text>
                       <Text color="cyan.400" fontSize="md">
-                        Brazil
+                        {t.contact.info.locationValue}
                       </Text>
                     </Box>
                   </VStack>
@@ -556,7 +562,7 @@ export function Contact() {
                     bgGradient="linear(to-r, teal.400, cyan.400)"
                     bgClip="text"
                   >
-                    Social Media
+                    {t.contact.social.title}
                   </Text>
 
                   <VStack spacing={4}>

@@ -10,11 +10,13 @@ import {
 } from "../../data/projects";
 import { ProjectGrid } from "../ProjectGrid";
 import { ProjectFilters } from "../ProjectFilters";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionFlex = motion(Flex);
 const MotionText = motion(Text);
 
 export function Projects() {
+  const { t } = useLocale();
   const [selectedTechnology, setSelectedTechnology] = useState<
     string | undefined
   >();
@@ -107,7 +109,7 @@ export function Projects() {
               mb="4"
               letterSpacing="-0.02em"
             >
-              Projects
+              {t.projects.title}
             </MotionText>
             <Text
               fontSize={{ base: "md", md: "xl" }}
@@ -117,8 +119,7 @@ export function Projects() {
               maxW="2xl"
               lineHeight="1.6"
             >
-              A collection of projects and studies showcasing different
-              technologies, architectures, and problem-solving approaches
+              {t.projects.subtitle}
             </Text>
           </MotionFlex>
 
@@ -162,7 +163,8 @@ export function Projects() {
               bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
             >
-              Showing {filteredProjects.length} of {projects.length} projects
+              {t.projects.showing} {filteredProjects.length} {t.projects.of}{" "}
+              {projects.length} {t.projects.projectsLabel}
             </Text>
           </MotionFlex>
         </Container>

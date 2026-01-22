@@ -14,6 +14,7 @@ import { FaGithub, FaExternalLinkAlt, FaBook, FaNpm } from "react-icons/fa";
 import { useState } from "react";
 import { Project } from "../../types/project";
 import { SocialButton } from "../SocialButton";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
@@ -30,6 +31,12 @@ export function ProjectCard({
   index = 0,
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { locale } = useLocale();
+
+  const description =
+    locale === "pt" && project.descriptionPt
+      ? project.descriptionPt
+      : project.description;
 
   // Color mode values
   const cardBg = useColorModeValue(
@@ -299,7 +306,7 @@ export function ProjectCard({
             noOfLines={featured ? 4 : 3}
             lineHeight="1.6"
           >
-            {project.description}
+            {description}
           </Text>
 
           {/* Technologies */}

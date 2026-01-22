@@ -61,11 +61,7 @@ export function Footer() {
           </Text>
         </MotionText>
 
-        <Text
-          fontSize="sm"
-          color="gray.500"
-          textAlign="center"
-        >
+        <Text fontSize="sm" color="gray.500" textAlign="center">
           © {currentYear} · All rights reserved
         </Text>
       </VStack>

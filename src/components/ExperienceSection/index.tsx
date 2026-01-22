@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
@@ -39,6 +40,7 @@ const experiences: Experience[] = [
       "PostgreSQL",
       "Redis",
       "React",
+      "Google Cloud Platform"
     ],
     current: true,
   },
@@ -58,7 +60,7 @@ const experiences: Experience[] = [
     period: "Jan 2022 - Apr 2025",
     location: "Itabira, MG",
     type: "Full Time",
-    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis"],
+    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis", "Google Cloud Platform"],
   },
   {
     id: "4",
@@ -67,7 +69,7 @@ const experiences: Experience[] = [
     period: "Feb 2021 - Jan 2022",
     location: "Itabira, MG",
     type: "Intern",
-    technologies: ["Node.js", "JavaScript", "MySQL"],
+    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis"],
   },
   {
     id: "5",
@@ -76,7 +78,7 @@ const experiences: Experience[] = [
     period: "Sep 2017 - Mar 2022",
     location: "Ouro Preto, MG",
     type: "Full Time",
-    technologies: ["Algorithms", "Data Structures", "Software Engineering"],
+    technologies: ["Algorithms", "Data Structures", "Software Engineering", "Data Science"],
   },
 ];
 
@@ -106,7 +108,13 @@ const itemVariants = {
   },
 };
 
-function ExperienceCard({ experience }: { experience: Experience }) {
+function ExperienceCard({
+  experience,
+  currentLabel,
+}: {
+  experience: Experience;
+  currentLabel: string;
+}) {
   const cardBg = useColorModeValue(
     "rgba(255, 255, 255, 0.1)",
     "rgba(26, 32, 44, 0.6)"
@@ -163,7 +171,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
               borderRadius="full"
               fontSize="xs"
             >
-              Current
+              {currentLabel}
             </Badge>
           )}
         </HStack>
@@ -241,6 +249,7 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
 
 export function ExperienceSection() {
   const timelineColor = useColorModeValue("gray.300", "gray.600");
+  const { t } = useLocale();
 
   return (
     <Element name="about">
@@ -270,7 +279,7 @@ export function ExperienceSection() {
             bgClip="text"
             mb={2}
           >
-            Professional Experience
+            {t.experience.title}
           </Text>
           <Text
             fontSize={{ base: "lg", md: "xl" }}
@@ -279,7 +288,7 @@ export function ExperienceSection() {
             opacity={0.8}
             maxW="600px"
           >
-            My journey through the tech industry
+            {t.experience.subtitle}
           </Text>
         </MotionFlex>
 
@@ -339,7 +348,10 @@ export function ExperienceSection() {
                   flex={1}
                   pr={8}
                 >
-                  <ExperienceCard experience={exp} />
+                  <ExperienceCard
+                    experience={exp}
+                    currentLabel={t.experience.current}
+                  />
                 </Box>
 
                 {/* Center Dot for Desktop */}
@@ -364,7 +376,10 @@ export function ExperienceSection() {
                   flex={1}
                   pl={{ base: 0, md: 8 }}
                 >
-                  <ExperienceCard experience={exp} />
+                  <ExperienceCard
+                    experience={exp}
+                    currentLabel={t.experience.current}
+                  />
                 </Box>
 
                 {/* Spacer for right side (Desktop even indexes) */}
