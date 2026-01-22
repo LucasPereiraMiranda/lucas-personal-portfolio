@@ -1,7 +1,9 @@
 import React from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Flex, Text, Image, IconButton, Box } from "@chakra-ui/react";
+import { Flex, Text, Image, Box, useColorModeValue } from "@chakra-ui/react";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,7 +12,22 @@ import "swiper/css/scrollbar";
 import { FaGithub } from "react-icons/fa";
 import { SocialButton } from "../SocialButton";
 
+const MotionFlex = motion(Flex);
+
 export function ProjectSlider() {
+  const cardBg = useColorModeValue(
+    "rgba(255, 255, 255, 0.1)",
+    "rgba(26, 32, 44, 0.6)"
+  );
+  const cardBorder = useColorModeValue(
+    "rgba(255, 255, 255, 0.2)",
+    "rgba(255, 255, 255, 0.1)"
+  );
+  const glowColor = useColorModeValue(
+    "rgba(128, 90, 213, 0.3)",
+    "rgba(0, 217, 255, 0.2)"
+  );
+
   const projects = [
     {
       name: "Check-in card generator",
@@ -95,46 +112,105 @@ export function ProjectSlider() {
         >
           {projects.map((project, index) => (
             <SwiperSlide key={index}>
-              <Flex
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                padding="40px"
-                borderRadius="12px"
-                boxShadow="lg"
-                height="100%"
-                minW="320px"
-                maxW="500px"
-                m="auto"
+              <Tilt
+                tiltMaxAngleX={10}
+                tiltMaxAngleY={10}
+                perspective={1000}
+                scale={1.02}
+                transitionSpeed={400}
+                gyroscope={true}
+                style={{ height: "100%" }}
               >
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  mb="6"
-                  width="100%"
-                  height="auto"
-                  objectFit="cover"
-                  maxH="200px"
-                />
-                <Text
-                  as="span"
-                  fontSize="2xl"
-                  fontWeight="bold"
-                  textAlign="center"
+                <MotionFlex
+                  flexDirection="column"
+                  alignItems="center"
+                  justifyContent="center"
+                  padding="40px"
+                  borderRadius="20px"
+                  height="100%"
+                  minW="320px"
+                  maxW="500px"
+                  m="auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  bg={cardBg}
+                  backdropFilter="blur(20px)"
+                  border="1px solid"
+                  borderColor={cardBorder}
+                  boxShadow={`0 8px 32px 0 ${glowColor}, inset 0 0 0 1px rgba(255, 255, 255, 0.05)`}
+                  position="relative"
+                  overflow="hidden"
+                  _before={{
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "1px",
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
+                  }}
+                  _hover={{
+                    boxShadow: `0 8px 40px 0 rgba(128, 90, 213, 0.4), 0 0 20px rgba(0, 217, 255, 0.3)`,
+                    borderColor: "rgba(128, 90, 213, 0.5)",
+                  }}
+                  sx={{
+                    transition: "all 0.3s ease",
+                  }}
                 >
-                  {project.name}
-                </Text>
-                <Text textAlign="center" mt="4" fontSize="lg">
-                  {project.description}
-                </Text>{" "}
-                {/* Adicionando um pouco de espaço acima da descrição e aumentando o fontSize */}
-                <SocialButton
-                  link={project.repositoryLink}
-                  arialLabel="Github"
-                  Icon={FaGithub}
-                  hoverColor="#718096"
-                />
-              </Flex>
+                  <Box
+                    position="relative"
+                    width="100%"
+                    mb="6"
+                    borderRadius="12px"
+                    overflow="hidden"
+                    _after={{
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background:
+                        "linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%)",
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      width="100%"
+                      height="auto"
+                      objectFit="cover"
+                      maxH="200px"
+                      transition="transform 0.3s ease"
+                      _hover={{ transform: "scale(1.05)" }}
+                    />
+                  </Box>
+                  <Text
+                    as="span"
+                    fontSize="2xl"
+                    fontWeight="bold"
+                    textAlign="center"
+                    bgGradient="linear(to-r, teal.400, cyan.400)"
+                    bgClip="text"
+                  >
+                    {project.name}
+                  </Text>
+                  <Text textAlign="center" mt="4" fontSize="lg" opacity={0.9}>
+                    {project.description}
+                  </Text>
+                  <Box mt="4">
+                    <SocialButton
+                      link={project.repositoryLink}
+                      arialLabel="Github"
+                      Icon={FaGithub}
+                      hoverColor="#718096"
+                    />
+                  </Box>
+                </MotionFlex>
+              </Tilt>
             </SwiperSlide>
           ))}
         </Swiper>

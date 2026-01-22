@@ -1,5 +1,7 @@
-import { Flex, Link, useColorModeValue, chakra } from "@chakra-ui/react";
+import { Flex, useColorModeValue, chakra } from "@chakra-ui/react";
 import { Link as ScrollLink } from "react-scroll";
+import { useLocale } from "@/contexts/LocaleContext";
+
 interface NavbarProps {
   isSidebar?: boolean;
 }
@@ -7,6 +9,8 @@ interface NavbarProps {
 export function Navbar({ isSidebar }: NavbarProps) {
   const defaultColor = useColorModeValue("gray.900", "gray.100");
   const hoverColor = useColorModeValue("cyan.800", "cyan.300");
+  const { t } = useLocale();
+
   return (
     <Flex
       padding={4}
@@ -28,7 +32,7 @@ export function Navbar({ isSidebar }: NavbarProps) {
           cursor: "pointer",
         }}
       >
-        Home
+        {t.nav.home}
       </chakra.a>
 
       <chakra.a
@@ -45,7 +49,7 @@ export function Navbar({ isSidebar }: NavbarProps) {
           transition: "color 0.1s ease-in-out",
         }}
       >
-        Tech Stack
+        {t.nav.techStack}
       </chakra.a>
 
       <chakra.a
@@ -62,7 +66,7 @@ export function Navbar({ isSidebar }: NavbarProps) {
           transition: "color 0.1s ease-in-out",
         }}
       >
-        About
+        {t.nav.about}
       </chakra.a>
 
       <chakra.a
@@ -79,7 +83,24 @@ export function Navbar({ isSidebar }: NavbarProps) {
           transition: "color 0.1s ease-in-out",
         }}
       >
-        Projects
+        {t.nav.projects}
+      </chakra.a>
+
+      <chakra.a
+        as={ScrollLink}
+        to="contact"
+        spy
+        smooth
+        duration={700}
+        offset={-70}
+        color={defaultColor}
+        _hover={{
+          color: hoverColor,
+          cursor: "pointer",
+          transition: "color 0.1s ease-in-out",
+        }}
+      >
+        {t.nav.contact}
       </chakra.a>
     </Flex>
   );

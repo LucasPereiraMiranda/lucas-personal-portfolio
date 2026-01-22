@@ -16,6 +16,7 @@ import { FaBars } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { Navbar } from "../NavBar";
 import { ThemeSwitcher } from "../ThemeSwitcher";
+import { LanguageToggle } from "../LanguageToggle";
 
 export function Header() {
   const background = useColorModeValue("gray.300", "gray.700");
@@ -82,6 +83,7 @@ export function Header() {
               </DrawerBody>
             </DrawerContent>
           </Drawer>
+          <LanguageToggle />
           <ThemeSwitcher />
         </Flex>
       </Flex>
