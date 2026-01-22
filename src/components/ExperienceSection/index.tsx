@@ -28,11 +28,18 @@ const experiences: Experience[] = [
   {
     id: "1",
     company: "ClubPetro",
-    role: "Software Engineer",
+    role: "Fullstack Software Engineer",
     period: "Nov 2025 - Present",
     location: "Itabira, MG",
     type: "Full Time · Remote",
-    technologies: ["TypeScript", "Node.js", "Nest.js", "PostgreSQL"],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Docker",
+      "PostgreSQL",
+      "Redis",
+      "React",
+    ],
     current: true,
   },
   {
@@ -51,7 +58,7 @@ const experiences: Experience[] = [
     period: "Jan 2022 - Apr 2025",
     location: "Itabira, MG",
     type: "Full Time",
-    technologies: ["Node.js", "Python", "Docker", "PostgreSQL", "Redis"],
+    technologies: ["TypeScript", "Node.js", "Docker", "PostgreSQL", "Redis"],
   },
   {
     id: "4",
@@ -65,7 +72,7 @@ const experiences: Experience[] = [
   {
     id: "5",
     company: "UFOP",
-    role: "Computer Science Student",
+    role: "Computer Engineering Student",
     period: "Sep 2017 - Mar 2022",
     location: "Ouro Preto, MG",
     type: "Full Time",

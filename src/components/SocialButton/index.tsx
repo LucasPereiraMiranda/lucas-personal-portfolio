@@ -7,6 +7,8 @@ interface SocialButtonProps {
   arialLabel: string;
   Icon: IconType;
   hoverColor: string;
+  size?: "sm" | "md" | "lg";
+  fontSize?: string;
 }
 
 export function SocialButton({
@@ -14,6 +16,8 @@ export function SocialButton({
   arialLabel,
   Icon,
   hoverColor,
+  size = "lg",
+  fontSize,
 }: SocialButtonProps) {
   return (
     <IconButton
@@ -23,7 +27,8 @@ export function SocialButton({
       rel="noopener noreferrer"
       aria-label={arialLabel}
       icon={<Icon />}
-      size="lg"
+      size={size}
+      fontSize={fontSize}
       _hover={{ color: hoverColor }}
       variant="with-shadow"
     />

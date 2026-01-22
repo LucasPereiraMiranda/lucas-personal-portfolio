@@ -143,18 +143,21 @@ export function Hero() {
               arialLabel="Github"
               Icon={FaGithub}
               hoverColor="#718096"
-            />
-            <SocialButton
-              link="https://www.instagram.com/_lucaspmiranda_/"
-              arialLabel="Instagram"
-              Icon={FaInstagram}
-              hoverColor="#E4405F"
+              fontSize="1.75rem"
             />
             <SocialButton
               link="https://www.linkedin.com/in/lucas-pereira-miranda-91452415b/"
               arialLabel="LinkedIn"
               Icon={FaLinkedin}
               hoverColor="#0077B5"
+              fontSize="1.75rem"
+            />
+            <SocialButton
+              link="https://www.instagram.com/_lucaspmiranda_/"
+              arialLabel="Instagram"
+              Icon={FaInstagram}
+              hoverColor="#E4405F"
+              fontSize="1.75rem"
             />
           </MotionFlex>
         </MotionFlex>

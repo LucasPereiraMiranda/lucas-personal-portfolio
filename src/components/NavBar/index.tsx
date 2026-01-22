@@ -81,6 +81,23 @@ export function Navbar({ isSidebar }: NavbarProps) {
       >
         Projects
       </chakra.a>
+
+      <chakra.a
+        as={ScrollLink}
+        to="contact"
+        spy
+        smooth
+        duration={700}
+        offset={-70}
+        color={defaultColor}
+        _hover={{
+          color: hoverColor,
+          cursor: "pointer",
+          transition: "color 0.1s ease-in-out",
+        }}
+      >
+        Contact
+      </chakra.a>
     </Flex>
   );
 }
