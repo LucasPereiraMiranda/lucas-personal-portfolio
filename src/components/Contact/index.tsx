@@ -214,8 +214,8 @@ export function Contact() {
       name: "Email",
       url: "mailto:lucas.pereira.miranda01@gmail.com",
       icon: FaEnvelope,
-      color: "purple.400",
-      hoverColor: "purple.300",
+      color: "teal.400",
+      hoverColor: "teal.300",
     },
   ];
 
@@ -238,7 +238,7 @@ export function Contact() {
           width={{ base: "300px", md: "500px" }}
           height={{ base: "300px", md: "500px" }}
           borderRadius="full"
-          bg="purple.500"
+          bg="teal.500"
           filter="blur(150px)"
           opacity="0.08"
           pointerEvents="none"
@@ -273,7 +273,7 @@ export function Contact() {
               fontSize={{ base: "3xl", md: "5xl" }}
               fontWeight="bold"
               as="h2"
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
               mb="4"
               textAlign="center"
@@ -318,7 +318,7 @@ export function Contact() {
                 left: 0,
                 right: 0,
                 height: "2px",
-                bgGradient: "linear(to-r, purple.400, cyan.400)",
+                bgGradient: "linear(to-r, teal.400, cyan.400)",
               }}
             >
               <form onSubmit={handleSubmit}>
@@ -422,10 +422,10 @@ export function Contact() {
                     type="submit"
                     size="lg"
                     w="100%"
-                    bgGradient="linear(to-r, purple.500, cyan.500)"
+                    bgGradient="linear(to-r, teal.500, cyan.500)"
                     color="white"
                     _hover={{
-                      bgGradient: "linear(to-r, purple.600, cyan.600)",
+                      bgGradient: "linear(to-r, teal.600, cyan.600)",
                       transform: "translateY(-2px)",
                       boxShadow: "0 8px 25px rgba(0, 217, 255, 0.3)",
                     }}
@@ -506,7 +506,7 @@ export function Contact() {
                     fontSize="xl"
                     fontWeight="bold"
                     mb={6}
-                    bgGradient="linear(to-r, purple.400, cyan.400)"
+                    bgGradient="linear(to-r, teal.400, cyan.400)"
                     bgClip="text"
                   >
                     Information
@@ -553,7 +553,7 @@ export function Contact() {
                     fontSize="xl"
                     fontWeight="bold"
                     mb={6}
-                    bgGradient="linear(to-r, purple.400, cyan.400)"
+                    bgGradient="linear(to-r, teal.400, cyan.400)"
                     bgClip="text"
                   >
                     Social Media

@@ -46,7 +46,7 @@ export function Hero() {
               right="-4px"
               bottom="-4px"
               borderRadius="full"
-              bgGradient="linear(to-r, purple.500, cyan.500, purple.500)"
+              bgGradient="linear(to-r, teal.500, cyan.500, teal.500)"
               backgroundSize="200% 200%"
               animation="gradientShift 3s ease infinite"
               filter="blur(8px)"

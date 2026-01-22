@@ -140,8 +140,8 @@ function ExperienceCard({ experience }: { experience: Experience }) {
         right: 0,
         height: "3px",
         bgGradient: experience.current
-          ? "linear(to-r, purple.400, cyan.400)"
-          : "linear(to-r, purple.200, cyan.200)",
+          ? "linear(to-r, teal.400, cyan.400)"
+          : "linear(to-r, teal.200, cyan.200)",
       }}
     >
       <VStack align="stretch" spacing={3}>
@@ -149,14 +149,14 @@ function ExperienceCard({ experience }: { experience: Experience }) {
           <Text
             fontSize={{ base: "lg", md: "xl" }}
             fontWeight="bold"
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
           >
             {experience.role}
           </Text>
           {experience.current && (
             <Badge
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               color="white"
               px={3}
               py={1}
@@ -186,7 +186,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
               <Badge
                 key={tech}
                 bg="rgba(167, 139, 250, 0.15)"
-                color="purple.300"
+                color="teal.300"
                 px={3}
                 py={1}
                 borderRadius="md"
@@ -211,9 +211,9 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
       width="16px"
       height="16px"
       borderRadius="full"
-      bg={isCurrent ? "purple.400" : "cyan.400"}
+      bg={isCurrent ? "teal.400" : "cyan.400"}
       border="3px solid"
-      borderColor={isCurrent ? "purple.200" : "cyan.200"}
+      borderColor={isCurrent ? "teal.200" : "cyan.200"}
       boxShadow={
         isCurrent
           ? "0 0 20px rgba(167, 139, 250, 0.6)"
@@ -266,7 +266,7 @@ export function ExperienceSection() {
             fontSize={{ base: "2xl", md: "4xl" }}
             fontWeight="bold"
             textAlign="center"
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
             mb={2}
           >
@@ -299,7 +299,7 @@ export function ExperienceSection() {
             top="0"
             bottom="0"
             width="2px"
-            bgGradient="linear(to-b, purple.400, cyan.400)"
+            bgGradient="linear(to-b, teal.400, cyan.400)"
             opacity={0.5}
             transform={{ md: "translateX(-50%)" }}
             zIndex={0}

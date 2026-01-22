@@ -41,7 +41,7 @@ export function ProjectFilters({
     "rgba(255, 255, 255, 0.1)"
   );
   const menuBg = useColorModeValue("white", "gray.800");
-  const menuItemHover = useColorModeValue("purple.50", "gray.700");
+  const menuItemHover = useColorModeValue("teal.50", "gray.700");
 
   const hasActiveFilters = selectedTechnology || selectedType;
 
@@ -70,15 +70,15 @@ export function ProjectFilters({
           <MenuButton
             as={Button}
             rightIcon={<FaChevronDown />}
-            bg={selectedTechnology ? "purple.500" : buttonBg}
+            bg={selectedTechnology ? "teal.500" : buttonBg}
             backdropFilter="blur(20px)"
             border="1px solid"
-            borderColor={selectedTechnology ? "purple.400" : buttonBorder}
+            borderColor={selectedTechnology ? "teal.400" : buttonBorder}
             color={selectedTechnology ? "white" : "inherit"}
             _hover={{
               transform: "translateY(-2px)",
               boxShadow: "0 8px 20px rgba(128, 90, 213, 0.3)",
-              bg: selectedTechnology ? "purple.600" : buttonBg,
+              bg: selectedTechnology ? "teal.600" : buttonBg,
             }}
             _active={{
               transform: "scale(0.95)",
@@ -112,7 +112,7 @@ export function ProjectFilters({
                 mx="2"
                 _hover={{ bg: menuItemHover }}
                 fontWeight={selectedTechnology === tech ? "bold" : "normal"}
-                color={selectedTechnology === tech ? "purple.400" : "inherit"}
+                color={selectedTechnology === tech ? "teal.400" : "inherit"}
               >
                 {tech}
               </MenuItem>

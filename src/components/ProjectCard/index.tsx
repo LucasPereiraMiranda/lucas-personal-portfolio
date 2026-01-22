@@ -48,7 +48,7 @@ export function ProjectCard({
     "rgba(128, 90, 213, 0.15)",
     "rgba(0, 217, 255, 0.15)"
   );
-  const tagColor = useColorModeValue("purple.600", "cyan.300");
+  const tagColor = useColorModeValue("teal.600", "cyan.300");
 
   // 3D tilt effect
   const x = useMotionValue(0);
@@ -112,7 +112,7 @@ export function ProjectCard({
       case "npm":
         return "#CB3837";
       default:
-        return "purple.400";
+        return "teal.400";
     }
   };
 
@@ -194,7 +194,7 @@ export function ProjectCard({
             top="4"
             right="4"
             zIndex="2"
-            bgGradient="linear(to-r, purple.500, cyan.500)"
+            bgGradient="linear(to-r, teal.500, cyan.500)"
             color="white"
             px="3"
             py="1"
@@ -265,7 +265,7 @@ export function ProjectCard({
             position="absolute"
             bottom="4"
             left="4"
-            colorScheme="purple"
+            colorScheme="teal"
             variant="solid"
             px="3"
             py="1"
@@ -284,7 +284,7 @@ export function ProjectCard({
           <Text
             fontSize={featured ? "2xl" : "xl"}
             fontWeight="bold"
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
             lineHeight="1.2"
           >

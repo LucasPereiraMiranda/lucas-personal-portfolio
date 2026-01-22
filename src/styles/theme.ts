@@ -19,7 +19,7 @@ const config = {
 };
 
 const colors = {
-  colorizedGradient: "linear(to-r, purple.700, cyan.700)",
+  colorizedGradient: "linear(to-r, teal.700, cyan.700)",
 };
 
 const textStyles = {

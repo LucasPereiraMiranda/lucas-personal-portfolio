@@ -65,7 +65,7 @@ const SectionTitle = ({ children }: { children: React.ReactNode }) => (
       transform: "translateX(-50%)",
       width: "40px",
       height: "2px",
-      bgGradient: "linear(to-r, purple.400, cyan.400)",
+      bgGradient: "linear(to-r, teal.400, cyan.400)",
       borderRadius: "full",
     }}
     pb={2}
@@ -105,7 +105,7 @@ export function TechStack() {
               fontWeight="bold"
               textAlign="center"
               as="h2"
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
             >
               My tech stack

@@ -84,13 +84,13 @@ export function ProjectGrid({ projects, featuredProjects }: ProjectGridProps) {
               <Box
                 h="4px"
                 w="40px"
-                bgGradient="linear(to-r, purple.400, cyan.400)"
+                bgGradient="linear(to-r, teal.400, cyan.400)"
                 borderRadius="full"
               />
               <Text
                 fontSize={{ base: "xl", md: "2xl" }}
                 fontWeight="bold"
-                bgGradient="linear(to-r, purple.400, cyan.400)"
+                bgGradient="linear(to-r, teal.400, cyan.400)"
                 bgClip="text"
               >
                 Featured Projects
@@ -127,7 +127,7 @@ export function ProjectGrid({ projects, featuredProjects }: ProjectGridProps) {
                 <Box
                   h="4px"
                   w="40px"
-                  bgGradient="linear(to-r, cyan.400, purple.400)"
+                  bgGradient="linear(to-r, cyan.400, teal.400)"
                   borderRadius="full"
                 />
                 <Text

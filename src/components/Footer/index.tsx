@@ -27,7 +27,7 @@ export function Footer() {
         transform="translateX(-50%)"
         width={{ base: "80%", md: "400px" }}
         height="2px"
-        bgGradient="linear(to-r, transparent, purple.400, cyan.400, transparent)"
+        bgGradient="linear(to-r, transparent, teal.400, cyan.400, transparent)"
       />
 
       <VStack spacing={4}>
@@ -48,12 +48,12 @@ export function Footer() {
             smooth
             duration={700}
             offset={-70}
-            bgGradient="linear(to-r, purple.400, cyan.400)"
+            bgGradient="linear(to-r, teal.400, cyan.400)"
             bgClip="text"
             fontWeight="bold"
             cursor="pointer"
             _hover={{
-              bgGradient: "linear(to-r, purple.300, cyan.300)",
+              bgGradient: "linear(to-r, teal.300, cyan.300)",
             }}
             transition="all 0.3s"
           >

@@ -50,7 +50,7 @@ export function Projects() {
           width={{ base: "300px", md: "600px" }}
           height={{ base: "300px", md: "600px" }}
           borderRadius="full"
-          bg="purple.500"
+          bg="teal.500"
           filter="blur(150px)"
           opacity="0.08"
           pointerEvents="none"
@@ -102,7 +102,7 @@ export function Projects() {
               fontWeight="bold"
               textAlign="center"
               as="h2"
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
               mb="4"
               letterSpacing="-0.02em"
@@ -159,7 +159,7 @@ export function Projects() {
               fontSize="sm"
               opacity={0.5}
               fontWeight="medium"
-              bgGradient="linear(to-r, purple.400, cyan.400)"
+              bgGradient="linear(to-r, teal.400, cyan.400)"
               bgClip="text"
             >
               Showing {filteredProjects.length} of {projects.length} projects
