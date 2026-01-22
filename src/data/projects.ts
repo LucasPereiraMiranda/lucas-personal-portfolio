@@ -8,7 +8,13 @@ export const projects: Project[] = [
       "Exploring FaaS, AWS, Serverless, Lambda & DynamoDB to create course check-in cards with automatic image generation",
     image:
       "https://raw.githubusercontent.com/LucasPereiraMiranda/check-in-card-generator/master/.github/images/generated.png",
-    technologies: ["AWS Lambda", "DynamoDB", "Serverless", "TypeScript", "Node.js"],
+    technologies: [
+      "AWS Lambda",
+      "DynamoDB",
+      "Serverless",
+      "TypeScript",
+      "Node.js",
+    ],
     type: "api",
     featured: true,
     year: 2023,
@@ -142,7 +148,8 @@ export const filterProjects = (
   type?: string
 ): Project[] => {
   return allProjects.filter((project) => {
-    const matchesTech = !technology || project.technologies.includes(technology);
+    const matchesTech =
+      !technology || project.technologies.includes(technology);
     const matchesType = !type || project.type === type;
     return matchesTech && matchesType;
   });

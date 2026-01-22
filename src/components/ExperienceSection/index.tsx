@@ -165,13 +165,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
           {experience.company}
         </Text>
 
-        <HStack
-          spacing={2}
-          fontSize="sm"
-          opacity={0.7}
-          flexWrap="wrap"
-          gap={2}
-        >
+        <HStack spacing={2} fontSize="sm" opacity={0.7} flexWrap="wrap" gap={2}>
           <Text>{experience.period}</Text>
           <Text>•</Text>
           <Text>{experience.type}</Text>
@@ -314,7 +308,10 @@ export function ExperienceSection() {
               >
                 {/* Timeline Dot - Mobile & Desktop Left */}
                 <Box
-                  display={{ base: "flex", md: index % 2 === 0 ? "none" : "flex" }}
+                  display={{
+                    base: "flex",
+                    md: index % 2 === 0 ? "none" : "flex",
+                  }}
                   position={{ base: "relative", md: "absolute" }}
                   left={{ md: "50%" }}
                   transform={{ md: "translateX(-50%)" }}
@@ -328,7 +325,10 @@ export function ExperienceSection() {
 
                 {/* Left Side Card (Desktop only - even indexes) */}
                 <Box
-                  display={{ base: "none", md: index % 2 === 0 ? "block" : "none" }}
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "block" : "none",
+                  }}
                   flex={1}
                   pr={8}
                 >
@@ -337,7 +337,10 @@ export function ExperienceSection() {
 
                 {/* Center Dot for Desktop */}
                 <Box
-                  display={{ base: "none", md: index % 2 === 0 ? "flex" : "none" }}
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "flex" : "none",
+                  }}
                   alignItems="flex-start"
                   pt={2}
                   zIndex={2}
@@ -347,7 +350,10 @@ export function ExperienceSection() {
 
                 {/* Right Side Card (Desktop odd indexes) / All cards on Mobile */}
                 <Box
-                  display={{ base: "block", md: index % 2 === 0 ? "none" : "block" }}
+                  display={{
+                    base: "block",
+                    md: index % 2 === 0 ? "none" : "block",
+                  }}
                   flex={1}
                   pl={{ base: 0, md: 8 }}
                 >
@@ -356,7 +362,10 @@ export function ExperienceSection() {
 
                 {/* Spacer for right side (Desktop even indexes) */}
                 <Box
-                  display={{ base: "none", md: index % 2 === 0 ? "block" : "none" }}
+                  display={{
+                    base: "none",
+                    md: index % 2 === 0 ? "block" : "none",
+                  }}
                   flex={1}
                 />
               </Flex>

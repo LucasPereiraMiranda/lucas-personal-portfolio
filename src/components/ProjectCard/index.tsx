@@ -57,8 +57,16 @@ export function ProjectCard({
   const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
   const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["7.5deg", "-7.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-7.5deg", "7.5deg"]
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isHovered) return;
@@ -296,23 +304,21 @@ export function ProjectCard({
 
           {/* Technologies */}
           <HStack spacing="2" flexWrap="wrap" gap="2">
-            {project.technologies
-              .slice(0, featured ? 5 : 3)
-              .map((tech) => (
-                <Tag
-                  key={tech}
-                  size="sm"
-                  bg={tagBg}
-                  color={tagColor}
-                  borderRadius="full"
-                  fontWeight="medium"
-                  fontSize="xs"
-                  px="3"
-                  py="1"
-                >
-                  {tech}
-                </Tag>
-              ))}
+            {project.technologies.slice(0, featured ? 5 : 3).map((tech) => (
+              <Tag
+                key={tech}
+                size="sm"
+                bg={tagBg}
+                color={tagColor}
+                borderRadius="full"
+                fontWeight="medium"
+                fontSize="xs"
+                px="3"
+                py="1"
+              >
+                {tech}
+              </Tag>
+            ))}
             {project.technologies.length > (featured ? 5 : 3) && (
               <Tag
                 size="sm"

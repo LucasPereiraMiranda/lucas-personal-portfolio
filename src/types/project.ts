@@ -1,4 +1,10 @@
-export type ProjectType = "web" | "cli" | "mobile" | "library" | "api" | "devops";
+export type ProjectType =
+  | "web"
+  | "cli"
+  | "mobile"
+  | "library"
+  | "api"
+  | "devops";
 
 export type ProjectStatus = "active" | "archived" | "in-progress";
 

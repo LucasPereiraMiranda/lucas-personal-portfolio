@@ -20,7 +20,6 @@ export function Projects() {
   >();
   const [selectedType, setSelectedType] = useState<string | undefined>();
 
-
   const technologies = useMemo(() => getAllTechnologies(), []);
   const types = useMemo(() => getProjectTypes(), []);
 

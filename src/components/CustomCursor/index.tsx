@@ -45,11 +45,11 @@ export function CustomCursor() {
       const target = e.target as HTMLElement;
       const isClickable = Boolean(
         target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.style.cursor === "pointer" ||
-        window.getComputedStyle(target).cursor === "pointer"
+          target.tagName === "BUTTON" ||
+          target.closest("a") ||
+          target.closest("button") ||
+          target.style.cursor === "pointer" ||
+          window.getComputedStyle(target).cursor === "pointer"
       );
       setIsPointer(isClickable);
     };
