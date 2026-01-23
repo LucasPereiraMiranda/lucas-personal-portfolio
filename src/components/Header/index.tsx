@@ -9,11 +9,11 @@ import {
   IconButton,
   useDisclosure,
   Text,
-  Link,
   useColorModeValue,
+  chakra,
 } from "@chakra-ui/react";
 import { FaBars } from "react-icons/fa";
-import { useRouter } from "next/router";
+import { Link as ScrollLink } from "react-scroll";
 import { Navbar } from "../NavBar";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { LanguageToggle } from "../LanguageToggle";
@@ -21,12 +21,6 @@ import { LanguageToggle } from "../LanguageToggle";
 export function Header() {
   const background = useColorModeValue("gray.300", "gray.700");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const router = useRouter();
-
-  const handleHomeClick = () => {
-    router.push("/");
-  };
 
   return (
     <Box as="header" paddingTop={{ base: "2rem", md: "14rem" }}>
@@ -43,11 +37,16 @@ export function Header() {
         backgroundColor={background}
       >
         <Box display="flex" alignItems="center">
-          <Link
-            href="#"
+          <chakra.a
+            as={ScrollLink}
+            to="home"
+            spy
+            smooth
+            duration={700}
+            offset={-70}
             display="block"
             borderRadius="md"
-            onClick={() => handleHomeClick}
+            cursor="pointer"
             _hover={{ textDecoration: "none" }}
           >
             <Flex alignItems="center">
@@ -60,7 +59,7 @@ export function Header() {
                 {`<> Lucas </>`}
               </Text>
             </Flex>
-          </Link>
+          </chakra.a>
 
           <Box display={{ base: "none", md: "flex" }} alignItems="center">
             <Navbar />
