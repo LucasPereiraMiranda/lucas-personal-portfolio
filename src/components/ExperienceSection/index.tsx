@@ -135,6 +135,19 @@ function ExperienceCard({
     "rgba(255, 255, 255, 0.2)",
     "rgba(255, 255, 255, 0.1)"
   );
+  const hoverBorderColor = useColorModeValue(
+    "rgba(56, 178, 172, 0.5)",
+    "rgba(167, 139, 250, 0.5)"
+  );
+  const techBadgeBg = useColorModeValue(
+    "rgba(56, 178, 172, 0.1)",
+    "rgba(167, 139, 250, 0.15)"
+  );
+  const techBadgeColor = useColorModeValue("teal.600", "teal.300");
+  const techBadgeBorder = useColorModeValue(
+    "rgba(56, 178, 172, 0.3)",
+    "rgba(167, 139, 250, 0.3)"
+  );
 
   return (
     <MotionBox
@@ -149,7 +162,7 @@ function ExperienceCard({
       overflow="hidden"
       whileHover={{
         scale: 1.02,
-        borderColor: "rgba(167, 139, 250, 0.5)",
+        borderColor: hoverBorderColor,
       }}
       transition={{ duration: 0.2 }}
       _before={{
@@ -205,14 +218,14 @@ function ExperienceCard({
             {experience.technologies.map((tech) => (
               <Badge
                 key={tech}
-                bg="rgba(167, 139, 250, 0.15)"
-                color="teal.300"
+                bg={techBadgeBg}
+                color={techBadgeColor}
                 px={3}
                 py={1}
                 borderRadius="md"
                 fontSize="xs"
                 border="1px solid"
-                borderColor="rgba(167, 139, 250, 0.3)"
+                borderColor={techBadgeBorder}
               >
                 {tech}
               </Badge>
@@ -225,6 +238,15 @@ function ExperienceCard({
 }
 
 function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
+  const currentGlow = useColorModeValue(
+    "0 0 20px rgba(56, 178, 172, 0.6)",
+    "0 0 20px rgba(167, 139, 250, 0.6)"
+  );
+  const currentGlowPulse = useColorModeValue(
+    "0 0 30px rgba(56, 178, 172, 0.9)",
+    "0 0 30px rgba(167, 139, 250, 0.9)"
+  );
+
   return (
     <Box
       position="relative"
@@ -235,9 +257,7 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
       border="3px solid"
       borderColor={isCurrent ? "teal.200" : "cyan.200"}
       boxShadow={
-        isCurrent
-          ? "0 0 20px rgba(167, 139, 250, 0.6)"
-          : "0 0 10px rgba(34, 211, 238, 0.4)"
+        isCurrent ? currentGlow : "0 0 10px rgba(34, 211, 238, 0.4)"
       }
       zIndex={2}
       sx={
@@ -246,10 +266,10 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
               animation: "pulse 2s ease-in-out infinite",
               "@keyframes pulse": {
                 "0%, 100%": {
-                  boxShadow: "0 0 20px rgba(167, 139, 250, 0.6)",
+                  boxShadow: currentGlow,
                 },
                 "50%": {
-                  boxShadow: "0 0 30px rgba(167, 139, 250, 0.9)",
+                  boxShadow: currentGlowPulse,
                 },
               },
             }
@@ -260,7 +280,6 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
 }
 
 export function ExperienceSection() {
-  const timelineColor = useColorModeValue("gray.300", "gray.600");
   const { t } = useLocale();
 
   return (

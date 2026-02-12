@@ -70,13 +70,26 @@ export function Contact() {
   });
 
   const cardBg = useColorModeValue(
-    "rgba(255, 255, 255, 0.1)",
+    "rgba(255, 255, 255, 0.85)",
     "rgba(26, 32, 44, 0.6)"
   );
   const cardBorder = useColorModeValue(
-    "rgba(255, 255, 255, 0.2)",
+    "gray.200",
     "rgba(255, 255, 255, 0.1)"
   );
+
+  // Light theme color fixes
+  const inputBg = useColorModeValue("white", "rgba(0, 0, 0, 0.2)");
+  const inputBorderColor = useColorModeValue("gray.300", "whiteAlpha.200");
+  const inputHoverBorderColor = useColorModeValue("gray.400", "whiteAlpha.300");
+  const inputPlaceholderColor = useColorModeValue("gray.400", "gray.500");
+  const labelColor = useColorModeValue("gray.700", "gray.300");
+  const subtitleColor = useColorModeValue("gray.500", "gray.400");
+  const infoLabelColor = useColorModeValue("gray.600", "gray.400");
+  const socialBg = useColorModeValue("gray.50", "rgba(0, 0, 0, 0.2)");
+  const socialBorderColor = useColorModeValue("gray.200", "whiteAlpha.100");
+  const socialHoverBg = useColorModeValue("gray.100", "rgba(0, 0, 0, 0.3)");
+  const socialTextColor = useColorModeValue("gray.700", "white");
 
   const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
 
@@ -289,7 +302,7 @@ export function Contact() {
             </Text>
             <Text
               fontSize={{ base: "md", md: "lg" }}
-              color="gray.400"
+              color={subtitleColor}
               maxW="600px"
               textAlign="center"
             >
@@ -330,7 +343,7 @@ export function Contact() {
               <form onSubmit={handleSubmit}>
                 <VStack spacing={5}>
                   <FormControl isInvalid={!!errors.name}>
-                    <FormLabel color="gray.300" fontSize="sm">
+                    <FormLabel color={labelColor} fontSize="sm">
                       {t.contact.form.name}
                     </FormLabel>
                     <Input
@@ -339,21 +352,21 @@ export function Contact() {
                         handleInputChange("name", e.target.value)
                       }
                       placeholder={t.contact.form.namePlaceholder}
-                      bg="rgba(0, 0, 0, 0.2)"
+                      bg={inputBg}
                       border="1px solid"
-                      borderColor="whiteAlpha.200"
-                      _hover={{ borderColor: "whiteAlpha.300" }}
+                      borderColor={inputBorderColor}
+                      _hover={{ borderColor: inputHoverBorderColor }}
                       _focus={{
                         borderColor: "cyan.400",
                         boxShadow: "0 0 0 1px var(--chakra-colors-cyan-400)",
                       }}
-                      _placeholder={{ color: "gray.500" }}
+                      _placeholder={{ color: inputPlaceholderColor }}
                     />
                     <FormErrorMessage>{errors.name}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.email}>
-                    <FormLabel color="gray.300" fontSize="sm">
+                    <FormLabel color={labelColor} fontSize="sm">
                       {t.contact.form.email}
                     </FormLabel>
                     <Input
@@ -363,21 +376,21 @@ export function Contact() {
                         handleInputChange("email", e.target.value)
                       }
                       placeholder={t.contact.form.emailPlaceholder}
-                      bg="rgba(0, 0, 0, 0.2)"
+                      bg={inputBg}
                       border="1px solid"
-                      borderColor="whiteAlpha.200"
-                      _hover={{ borderColor: "whiteAlpha.300" }}
+                      borderColor={inputBorderColor}
+                      _hover={{ borderColor: inputHoverBorderColor }}
                       _focus={{
                         borderColor: "cyan.400",
                         boxShadow: "0 0 0 1px var(--chakra-colors-cyan-400)",
                       }}
-                      _placeholder={{ color: "gray.500" }}
+                      _placeholder={{ color: inputPlaceholderColor }}
                     />
                     <FormErrorMessage>{errors.email}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.subject}>
-                    <FormLabel color="gray.300" fontSize="sm">
+                    <FormLabel color={labelColor} fontSize="sm">
                       {t.contact.form.subject}
                     </FormLabel>
                     <Input
@@ -386,21 +399,21 @@ export function Contact() {
                         handleInputChange("subject", e.target.value)
                       }
                       placeholder={t.contact.form.subjectPlaceholder}
-                      bg="rgba(0, 0, 0, 0.2)"
+                      bg={inputBg}
                       border="1px solid"
-                      borderColor="whiteAlpha.200"
-                      _hover={{ borderColor: "whiteAlpha.300" }}
+                      borderColor={inputBorderColor}
+                      _hover={{ borderColor: inputHoverBorderColor }}
                       _focus={{
                         borderColor: "cyan.400",
                         boxShadow: "0 0 0 1px var(--chakra-colors-cyan-400)",
                       }}
-                      _placeholder={{ color: "gray.500" }}
+                      _placeholder={{ color: inputPlaceholderColor }}
                     />
                     <FormErrorMessage>{errors.subject}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.message}>
-                    <FormLabel color="gray.300" fontSize="sm">
+                    <FormLabel color={labelColor} fontSize="sm">
                       {t.contact.form.message}
                     </FormLabel>
                     <Textarea
@@ -410,15 +423,15 @@ export function Contact() {
                       }
                       placeholder={t.contact.form.messagePlaceholder}
                       rows={5}
-                      bg="rgba(0, 0, 0, 0.2)"
+                      bg={inputBg}
                       border="1px solid"
-                      borderColor="whiteAlpha.200"
-                      _hover={{ borderColor: "whiteAlpha.300" }}
+                      borderColor={inputBorderColor}
+                      _hover={{ borderColor: inputHoverBorderColor }}
                       _focus={{
                         borderColor: "cyan.400",
                         boxShadow: "0 0 0 1px var(--chakra-colors-cyan-400)",
                       }}
-                      _placeholder={{ color: "gray.500" }}
+                      _placeholder={{ color: inputPlaceholderColor }}
                       resize="vertical"
                     />
                     <FormErrorMessage>{errors.message}</FormErrorMessage>
@@ -520,7 +533,7 @@ export function Contact() {
 
                   <VStack align="start" spacing={5}>
                     <Box>
-                      <Text color="gray.400" fontSize="sm" mb={1}>
+                      <Text color={infoLabelColor} fontSize="sm" mb={1}>
                         {t.contact.info.email}
                       </Text>
                       <Link
@@ -534,7 +547,7 @@ export function Contact() {
                     </Box>
 
                     <Box>
-                      <Text color="gray.400" fontSize="sm" mb={1}>
+                      <Text color={infoLabelColor} fontSize="sm" mb={1}>
                         {t.contact.info.location}
                       </Text>
                       <Text color="cyan.400" fontSize="md">
@@ -583,14 +596,14 @@ export function Contact() {
                           <HStack
                             p={4}
                             borderRadius="xl"
-                            bg="rgba(0, 0, 0, 0.2)"
+                            bg={socialBg}
                             border="1px solid"
-                            borderColor="whiteAlpha.100"
+                            borderColor={socialBorderColor}
                             transition="all 0.3s"
                             _hover={{
                               borderColor: social.color,
                               transform: "translateX(8px)",
-                              bg: "rgba(0, 0, 0, 0.3)",
+                              bg: socialHoverBg,
                             }}
                           >
                             <Icon
@@ -598,7 +611,7 @@ export function Contact() {
                               boxSize={6}
                               color={social.color}
                             />
-                            <Text color="white" fontWeight="medium">
+                            <Text color={socialTextColor} fontWeight="medium">
                               {social.name}
                             </Text>
                           </HStack>
