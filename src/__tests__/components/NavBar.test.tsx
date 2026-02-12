@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { Navbar } from "@/components/NavBar";
 import { renderWithProviders } from "../test-utils";
+import { Navbar } from "@/components/NavBar";
 import { en } from "@/lib/i18n/locales/en";
 
 describe("Navbar", () => {

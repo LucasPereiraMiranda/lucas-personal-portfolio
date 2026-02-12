@@ -256,9 +256,7 @@ function TimelineDot({ isCurrent }: { isCurrent?: boolean }) {
       bg={isCurrent ? "teal.400" : "cyan.400"}
       border="3px solid"
       borderColor={isCurrent ? "teal.200" : "cyan.200"}
-      boxShadow={
-        isCurrent ? currentGlow : "0 0 10px rgba(34, 211, 238, 0.4)"
-      }
+      boxShadow={isCurrent ? currentGlow : "0 0 10px rgba(34, 211, 238, 0.4)"}
       zIndex={2}
       sx={
         isCurrent

@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { LanguageToggle } from "@/components/LanguageToggle";
 import { renderWithProviders } from "../test-utils";
+import { LanguageToggle } from "@/components/LanguageToggle";
 
 describe("LanguageToggle", () => {
   beforeEach(() => {

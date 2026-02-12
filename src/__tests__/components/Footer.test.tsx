@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
-import { Footer } from "@/components/Footer";
 import { renderWithChakra } from "../test-utils";
+import { Footer } from "@/components/Footer";
 
 describe("Footer", () => {
   it("renders author name", () => {

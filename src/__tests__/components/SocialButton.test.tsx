@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { FaGithub } from "react-icons/fa";
-import { SocialButton } from "@/components/SocialButton";
 import { renderWithChakra } from "../test-utils";
+import { SocialButton } from "@/components/SocialButton";
 
 describe("SocialButton", () => {
   const defaultProps = {

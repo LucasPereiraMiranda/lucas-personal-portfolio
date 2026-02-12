@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Contact } from "@/components/Contact";
 import { renderWithProviders } from "../test-utils";
+import { Contact } from "@/components/Contact";
 import { en } from "@/lib/i18n/locales/en";
 
 describe("Contact", () => {

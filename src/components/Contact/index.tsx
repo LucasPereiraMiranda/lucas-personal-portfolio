@@ -73,10 +73,7 @@ export function Contact() {
     "rgba(255, 255, 255, 0.85)",
     "rgba(26, 32, 44, 0.6)"
   );
-  const cardBorder = useColorModeValue(
-    "gray.200",
-    "rgba(255, 255, 255, 0.1)"
-  );
+  const cardBorder = useColorModeValue("gray.200", "rgba(255, 255, 255, 0.1)");
 
   // Light theme color fixes
   const inputBg = useColorModeValue("white", "rgba(0, 0, 0, 0.2)");
